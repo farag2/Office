@@ -28,6 +28,10 @@ PowerShell script for Office 2016/2019 setup
   - Enable the "Draw" tab
   - Enable the "Developer" tab
 
+## Customized .xml configs for
+- [Excel, Outlook, PowerPoint, and Word](https://github.com/farag2/Office/blob/master/EOPW.xml)
+- [Excel and Word](https://github.com/farag2/Office/blob/master/EW.xml)
+
 ## Links
 - [Configure Office](https://config.office.com/deploymentsettings)
 - [Office Deployment Tool](https://www.microsoft.com/en-us/download/details.aspx?id=49117)
