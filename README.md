@@ -36,5 +36,4 @@ PowerShell script for Office 2016/2019 setup
 - [Configure Office](https://config.office.com/deploymentsettings)
 - [Office Deployment Tool](https://www.microsoft.com/en-us/download/details.aspx?id=49117)
 - [Deploy Office](https://docs.microsoft.com/en-us/deployoffice/reference-articles-for-deploying-office-365-proplus)
-- [Uninstall Office](https://aka.ms/SaRA-officeUninstallFromPC)
-- [Uninstall Office #2](https://aka.ms/diag_officeuninstall)
+- [Uninstall Office](https://support.microsoft.com/help/4027149)
