@@ -1,9 +1,9 @@
 <!--  https://config.office.com  -->
 <!--  https://www.microsoft.com/en-us/download/details.aspx?id=49117  -->
 
-<Configuration ID="ba1041eb-a175-4ecf-a519-44d392ea2a99">
-	<Add OfficeClientEdition="64" Channel="PerpetualVL2019" ForceUpgrade="TRUE">
-		<Product ID="Standard2019Volume" PIDKEY="6NWWJ-YQWMR-QKGCB-6TMB3-9D9HK">
+<Configuration>
+	<Add OfficeClientEdition="64" Channel="Monthly" ForceUpgrade="TRUE">
+		<Product ID="Standard2019Retail">
 			<Language ID="ru-ru" />
 			<Language ID="en-us" />
 			<ExcludeApp ID="Groove" />
