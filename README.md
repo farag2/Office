@@ -29,8 +29,10 @@ PowerShell script for Office 2016/2019 setup
   - Enable the "Developer" tab
 
 ## Customized .xml configs for
-- [Excel, Outlook, PowerPoint, and Word](https://github.com/farag2/Office/blob/master/EOPW.xml)
-- [Excel and Word](https://github.com/farag2/Office/blob/master/EW.xml)
+- [Excel, Outlook, PowerPoint, and Word (Standart, Monthly)](https://github.com/farag2/Office/blob/master/XML/EOPW.xml)
+- [Excel, Outlook, PowerPoint, and Word (VL, PerpetualVL2019)](https://github.com/farag2/Office/blob/master/XML/EOPW_VL.xml)
+- [Excel, PowerPoint, and Word (Standart, Monthly)](https://github.com/farag2/Office/blob/master/XML/EPW.xml)
+- [Excel, PowerPoint, and Word (VL, PerpetualVL2019)](https://github.com/farag2/Office/blob/master/XML/EPW_VL.xml)
 
 ## Links
 - [Configure Office](https://config.office.com/deploymentsettings)
