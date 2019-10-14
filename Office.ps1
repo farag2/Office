@@ -1,4 +1,4 @@
-﻿# Remove diagnostics tracking scheduled tasks
+# Remove diagnostics tracking scheduled tasks
 # Удалить задачи диагностического отслеживания
 Unregister-ScheduledTask OfficeTelemetryAgentFallBack2016, OfficeTelemetryAgentLogOn2016 -Confirm:$false -ErrorAction SilentlyContinue
 # Do not send additional diagnostic and usage data to Microsoft
@@ -47,8 +47,8 @@ IF (-not (Test-Path HKCU:\Software\Microsoft\Office\16.0\Word\Security\Protected
 	New-Item -Path HKCU:\Software\Microsoft\Office\16.0\Word\Security\ProtectedView -Force
 }
 New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Word\Security\ProtectedView -Name DisableUnsafeLocationsInPV -Value 1 -Force
-# Disable Protected View for Outlook attachments
-# Отключить защищенный просмотр для вложений Outlook
+# Disable Protected View for Word attachments
+# Отключить защищенный просмотр для вложений Word
 IF (-not (Test-Path HKCU:\Software\Microsoft\Office\16.0\Word\Security\ProtectedView))
 {
 	New-Item -Path HKCU:\Software\Microsoft\Office\16.0\Word\Security\ProtectedView -Force
@@ -95,8 +95,8 @@ IF (-not (Test-Path HKCU:\Software\Microsoft\Office\16.0\Excel\Security\Protecte
 	New-Item -Path HKCU:\Software\Microsoft\Office\16.0\Excel\Security\ProtectedView -Force
 }
 New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Excel\Security\ProtectedView -Name DisableUnsafeLocationsInPV -Value 1 -Force
-# Disable Protected View for Outlook attachments
-# Отключить защищенный просмотр для вложений Outlook
+# Disable Protected View for Excel attachments
+# Отключить защищенный просмотр для вложений Excel
 IF (-not (Test-Path HKCU:\Software\Microsoft\Office\16.0\Excel\Security\ProtectedView))
 {
 	New-Item -Path HKCU:\Software\Microsoft\Office\16.0\Excel\Security\ProtectedView -Force
