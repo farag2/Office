@@ -1,15 +1,12 @@
-<!--  https://config.office.com  -->
-<!--  https://www.microsoft.com/en-us/download/details.aspx?id=49117  -->
-
-<Configuration>
+<Configuration ID="008972d3-f8f4-4db3-a345-f0d50d9abb85">
 	<Add OfficeClientEdition="64" Channel="Monthly" ForceUpgrade="TRUE">
-		<Product ID="Standard2019Retail">
+		<Product ID="Standard2019Retail" PIDKEY="6NWWJ-YQWMR-QKGCB-6TMB3-9D9HK">
 			<Language ID="ru-ru" />
 			<Language ID="en-us" />
 			<ExcludeApp ID="Groove" />
 			<ExcludeApp ID="OneDrive" />
 			<ExcludeApp ID="OneNote" />
-			<ExcludeApp ID="Outlook"/>
+			<ExcludeApp ID="Outlook" />
 			<ExcludeApp ID="Publisher" />
 		</Product>
 		<Product ID="LanguagePack">
@@ -18,7 +15,7 @@
 			<ExcludeApp ID="Groove" />
 			<ExcludeApp ID="OneDrive" />
 			<ExcludeApp ID="OneNote" />
-			<ExcludeApp ID="Outlook"/>
+			<ExcludeApp ID="Outlook" />
 			<ExcludeApp ID="Publisher" />
 		</Product>
 		<Product ID="ProofingTools">
@@ -53,7 +50,6 @@
 		<User Key="software\microsoft\office\16.0\common\general" Name="skydrivesigninoption" Value="0" Type="REG_DWORD" App="office16" Id="L_ShowSkyDriveSignIn" />
 		<!--  Display Developer tab in the Ribbon  -->
 		<User Key="software\microsoft\office\16.0\excel\options" Name="developertools" Value="1" Type="REG_DWORD" App="excel16" Id="L_DisplayDeveloperTab" />
-		<User Key="software\microsoft\office\16.0\outlook\options" Name="developertools" Value="1" Type="REG_DWORD" App="outlk16" Id="L_DisplayDeveloperTab" />
 		<User Key="software\microsoft\office\16.0\powerpoint\options" Name="developertools" Value="1" Type="REG_DWORD" App="ppt16" Id="L_DisplayDeveloperTab" />
 		<User Key="software\microsoft\office\16.0\word\options" Name="developertools" Value="1" Type="REG_DWORD" App="word16" Id="L_DisplayDeveloperTab" />
 	</AppSettings>
