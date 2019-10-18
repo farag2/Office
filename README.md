@@ -11,7 +11,7 @@ Place .xml in XML folder, and setup.exe with .cmd (download/install) in a direct
 
 Run .cmd (download/install) **not as Administrator**and
 
-## Features
+## Script Features
 - General
   - Remove diagnostics tracking scheduled tasks
   - Do not send additional diagnostic and usage data to Microsoft
