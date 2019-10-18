@@ -1,4 +1,4 @@
-<Configuration>
+<Configuration ID="008972d3-f8f4-4db3-a345-f0d50d9abb85">
 	<Add OfficeClientEdition="64" Channel="PerpetualVL2019" ForceUpgrade="TRUE">
 		<Product ID="Standard2019Volume" PIDKEY="6NWWJ-YQWMR-QKGCB-6TMB3-9D9HK">
 			<Language ID="ru-ru" />
