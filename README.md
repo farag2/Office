@@ -28,7 +28,7 @@ PowerShell script for Office 2016/2019 setup
   - Enable the "Draw" tab
   - Enable the "Developer" tab
 
-## Customized .xml configs for
+## Customized .xml configs
 
 XML Configurations for downloading and installing Office 2019
  - E — Excel;
