@@ -1,16 +1,6 @@
 ## Overview
 PowerShell script for Office 2016/2019 setup
 
-XML Configurations for downloading and installing Office 2019
- - E — Excel;
- - O — Outlook;
- - P — PowerPoint;
- - W — Word.
-
-Place .xml in XML folder, and setup.exe with .cmd (download/install) in a directory upper than "XML".
-
-Run .cmd (download/install) **not as Administrator**and
-
 ## Script Features
 - General
   - Remove diagnostics tracking scheduled tasks
@@ -39,6 +29,16 @@ Run .cmd (download/install) **not as Administrator**and
   - Enable the "Developer" tab
 
 ## Customized .xml configs for
+
+XML Configurations for downloading and installing Office 2019
+ - E — Excel;
+ - O — Outlook;
+ - P — PowerPoint;
+ - W — Word.
+
+Place .xml in XML folder, and setup.exe with .cmd (download/install) in a directory upper than "XML".
+Run .cmd (download/install) **not as Administrator**
+
 - [Excel, Outlook, PowerPoint, and Word (Standart, Monthly)](https://github.com/farag2/Office/blob/master/XML/EOPW.xml)
 - [Excel, Outlook, PowerPoint, and Word (VL, PerpetualVL2019)](https://github.com/farag2/Office/blob/master/XML/EOPW_VL.xml)
 - [Excel, PowerPoint, and Word (Standart, Monthly)](https://github.com/farag2/Office/blob/master/XML/EPW.xml)
