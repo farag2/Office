@@ -1,4 +1,4 @@
-<Configuration>
+<Configuration ID="008972d3-f8f4-4db3-a345-f0d50d9abb85">
 	<Add OfficeClientEdition="64" Channel="PerpetualVL2019" ForceUpgrade="TRUE">
 		<Product ID="Standard2019Volume" PIDKEY="6NWWJ-YQWMR-QKGCB-6TMB3-9D9HK">
 			<Language ID="ru-ru" />
@@ -50,6 +50,7 @@
 		<User Key="software\microsoft\office\16.0\common\general" Name="skydrivesigninoption" Value="0" Type="REG_DWORD" App="office16" Id="L_ShowSkyDriveSignIn" />
 		<!--  Display Developer tab in the Ribbon  -->
 		<User Key="software\microsoft\office\16.0\excel\options" Name="developertools" Value="1" Type="REG_DWORD" App="excel16" Id="L_DisplayDeveloperTab" />
+		<User Key="software\microsoft\office\16.0\powerpoint\options" Name="developertools" Value="1" Type="REG_DWORD" App="ppt16" Id="L_DisplayDeveloperTab" />
 		<User Key="software\microsoft\office\16.0\word\options" Name="developertools" Value="1" Type="REG_DWORD" App="word16" Id="L_DisplayDeveloperTab" />
 	</AppSettings>
 	<Display Level="Full" AcceptEULA="TRUE" />
