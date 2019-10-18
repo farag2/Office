@@ -33,6 +33,8 @@ PowerShell script for Office 2016/2019 setup
 - [Excel, Outlook, PowerPoint, and Word (VL, PerpetualVL2019)](https://github.com/farag2/Office/blob/master/XML/EOPW_VL.xml)
 - [Excel, PowerPoint, and Word (Standart, Monthly)](https://github.com/farag2/Office/blob/master/XML/EPW.xml)
 - [Excel, PowerPoint, and Word (VL, PerpetualVL2019)](https://github.com/farag2/Office/blob/master/XML/EPW_VL.xml)
+- [Excel, Word (Standart, Monthly)](https://github.com/farag2/Office/blob/master/XML/EW.xml)
+- [Excel, Word (VL, PerpetualVL2019)](https://github.com/farag2/Office/blob/master/XML/EW_VL.xml)
 
 ## Links
 - [Configure Office](https://config.office.com/deploymentsettings)
