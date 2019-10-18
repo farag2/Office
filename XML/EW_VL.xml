@@ -1,0 +1,59 @@
+<Configuration ID="008972d3-f8f4-4db3-a345-f0d50d9abb85">
+	<Add OfficeClientEdition="64" Channel="PerpetualVL2019" ForceUpgrade="TRUE">
+		<Product ID="Standard2019Volume" PIDKEY="6NWWJ-YQWMR-QKGCB-6TMB3-9D9HK">
+			<Language ID="ru-ru" />
+			<Language ID="en-us" />
+			<ExcludeApp ID="Groove" />
+			<ExcludeApp ID="OneDrive" />
+			<ExcludeApp ID="OneNote" />
+			<ExcludeApp ID="Outlook" />
+			<ExcludeApp ID="PowerPoint" />
+			<ExcludeApp ID="Publisher" />
+		</Product>
+		<Product ID="LanguagePack">
+			<Language ID="ru-ru" />
+			<Language ID="en-us" />
+			<ExcludeApp ID="Groove" />
+			<ExcludeApp ID="OneDrive" />
+			<ExcludeApp ID="OneNote" />
+			<ExcludeApp ID="Outlook" />
+			<ExcludeApp ID="PowerPoint" />
+			<ExcludeApp ID="Publisher" />
+		</Product>
+		<Product ID="ProofingTools">
+			<Language ID="en-us" />
+			<Language ID="ru-ru" />
+		</Product>
+	</Add>
+	<Property Name="PinIconsToTaskbar" Value="FALSE" />
+	<Property Name="FORCEAPPSHUTDOWN" Value="FALSE" />
+	<Updates Enabled="TRUE" />
+	<RemoveMSI>
+		<IgnoreProduct ID="InfoPath" />
+		<IgnoreProduct ID="InfoPathR" />
+		<IgnoreProduct ID="PrjPro" />
+		<IgnoreProduct ID="PrjStd" />
+		<IgnoreProduct ID="SharePointDesigner" />
+		<IgnoreProduct ID="VisPro" />
+		<IgnoreProduct ID="VisStd" />
+	</RemoveMSI>
+	<AppSettings>
+		<!--  Large icons  -->
+		<User Key="software\microsoft\office\16.0\common\toolbars" Name="btnsize" Value="1" Type="REG_DWORD" App="office16" Id="L_Largeicons" />
+		<!--  Customer Experience Improvement Program  -->
+		<User Key="software\microsoft\office\16.0\common" Name="qmenable" Value="0" Type="REG_DWORD" App="office16" Id="L_EnableCustomerExperienceImprovementProgram" />
+		<!--  Data uploading for Office Telemetry Agent  -->
+		<User Key="software\microsoft\office\16.0\osm" Name="enableupload" Value="0" Type="REG_DWORD" App="office16" Id="L_OfficeInventoryAgentUpload" />
+		<!--  Privacy settings in Office Telemetry Agent  -->
+		<User Key="software\microsoft\office\16.0\osm" Name="enablefileobfuscation" Value="0" Type="REG_DWORD" App="office16" Id="L_OfficeInventoryAgentFilemetadataObfuscation" />
+		<!--  Telemetry data collection  -->
+		<User Key="software\microsoft\office\16.0\osm" Name="enablelogging" Value="0" Type="REG_DWORD" App="office16" Id="L_EnableLogging" />
+		<!--  OneDrive Sign In  -->
+		<User Key="software\microsoft\office\16.0\common\general" Name="skydrivesigninoption" Value="0" Type="REG_DWORD" App="office16" Id="L_ShowSkyDriveSignIn" />
+		<!--  Display Developer tab in the Ribbon  -->
+		<User Key="software\microsoft\office\16.0\excel\options" Name="developertools" Value="1" Type="REG_DWORD" App="excel16" Id="L_DisplayDeveloperTab" />
+		<User Key="software\microsoft\office\16.0\word\options" Name="developertools" Value="1" Type="REG_DWORD" App="word16" Id="L_DisplayDeveloperTab" />
+	</AppSettings>
+	<Display Level="Full" AcceptEULA="TRUE" />
+	<Logging Level="Off" />
+</Configuration>
