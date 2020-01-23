@@ -41,6 +41,8 @@ Run .cmd (download/install) **not as Administrator**
 
 - [Excel, Outlook, PowerPoint, and Word (Standart, Monthly)](https://github.com/farag2/Office/blob/master/XML/EOPW.xml)
 - [Excel, Outlook, PowerPoint, and Word (VL, PerpetualVL2019)](https://github.com/farag2/Office/blob/master/XML/EOPW_VL.xml)
+- [Excel, Outlook, and Word (Standart, Monthly)](https://github.com/farag2/Office/blob/master/XML/EOW.xml)
+- [Excel, Outlook,and Word (VL, PerpetualVL2019)](https://github.com/farag2/Office/blob/master/XML/EOW_VL.xml)
 - [Excel, PowerPoint, and Word (Standart, Monthly)](https://github.com/farag2/Office/blob/master/XML/EPW.xml)
 - [Excel, PowerPoint, and Word (VL, PerpetualVL2019)](https://github.com/farag2/Office/blob/master/XML/EPW_VL.xml)
 - [Excel, Word (Standart, Monthly)](https://github.com/farag2/Office/blob/master/XML/EW.xml)
