@@ -39,17 +39,22 @@ XML Configurations for downloading and installing Office 2019
 Place .xml in XML folder, and setup.exe with .cmd (download/install) in a directory upper than "XML".
 Run .cmd (download/install) **not as Administrator**
 
-- [Excel, Outlook, PowerPoint, and Word (Standart, Monthly)](https://github.com/farag2/Office/blob/master/XML/EOPW.xml)
-- [Excel, Outlook, PowerPoint, and Word (VL, PerpetualVL2019)](https://github.com/farag2/Office/blob/master/XML/EOPW_VL.xml)
-- [Excel, Outlook, and Word (Standart, Monthly)](https://github.com/farag2/Office/blob/master/XML/EOW.xml)
-- [Excel, Outlook,and Word (VL, PerpetualVL2019)](https://github.com/farag2/Office/blob/master/XML/EOW_VL.xml)
-- [Excel, PowerPoint, and Word (Standart, Monthly)](https://github.com/farag2/Office/blob/master/XML/EPW.xml)
-- [Excel, PowerPoint, and Word (VL, PerpetualVL2019)](https://github.com/farag2/Office/blob/master/XML/EPW_VL.xml)
-- [Excel, Word (Standart, Monthly)](https://github.com/farag2/Office/blob/master/XML/EW.xml)
-- [Excel, Word (VL, PerpetualVL2019)](https://github.com/farag2/Office/blob/master/XML/EW_VL.xml)
+## Channels
+- VL, Semi-Annual Channel, PerpetualVL2019
+   - [Excel, Outlook, PowerPoint, and Word](https://github.com/farag2/Office/blob/master/XML/EOPW_VL.xml)
+   - [Excel, Outlook,and Word](https://github.com/farag2/Office/blob/master/XML/EOW_VL.xml)
+   - [Excel, PowerPoint, and Word](https://github.com/farag2/Office/blob/master/XML/EPW_VL.xml)
+   - [Excel, Word](https://github.com/farag2/Office/blob/master/XML/EW_VL.xml)
+
+- Monthly Channel, Standart
+   - [Excel, Outlook, PowerPoint, and Word](https://github.com/farag2/Office/blob/master/XML/EOPW.xml)
+   - [Excel, Outlook, and Word](https://github.com/farag2/Office/blob/master/XML/EOW.xml)
+   - [Excel, PowerPoint, and Word](https://github.com/farag2/Office/blob/master/XML/EPW.xml)
+   - [Excel, Word](https://github.com/farag2/Office/blob/master/XML/EW.xml)
 
 ## Links
 - [Configure Office](https://config.office.com/deploymentsettings)
+- [Overview of update channels](https://docs.microsoft.com/ru-ru/DeployOffice/overview-of-update-channels-for-office-365-proplus)
 - [Office Deployment Tool](https://www.microsoft.com/en-us/download/details.aspx?id=49117)
 - [Deploy Office](https://docs.microsoft.com/en-us/deployoffice/reference-articles-for-deploying-office-365-proplus)
 - [Uninstall Office](https://support.microsoft.com/help/4027149)
