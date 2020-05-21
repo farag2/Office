@@ -3,11 +3,11 @@ PowerShell script for Office 2016/2019 setup
 
 ## Script Features
 - General
-  - Remove diagnostics tracking scheduled tasks
-  - Do not send additional diagnostic and usage data to Microsoft
-  - Disable LinkedIn features in Office applications
-  - Turn off the cloud features
-  - Turn on Touch/Mouse Mode
+    - Remove diagnostics tracking scheduled tasks
+    - Do not send additional diagnostic and usage data to Microsoft
+    - Disable LinkedIn features in Office applications
+    - Turn off the cloud features
+    - Turn on Touch/Mouse Mode
 
 - Word
   - Do not show the Start screen when application starts
@@ -43,7 +43,7 @@ Run .cmd (download/install) **not as Administrator**
 ## Channels
 - VL, Semi-Annual Channel, PerpetualVL2019
   - [Excel, Outlook, PowerPoint, and Word](https://github.com/farag2/Office/blob/master/XML/EOPW_VL.xml)
-  - [Excel, Outlook,and Word](https://github.com/farag2/Office/blob/master/XML/EOW_VL.xml)
+  - [Excel, Outlook, and Word](https://github.com/farag2/Office/blob/master/XML/EOW_VL.xml)
   - [Excel, PowerPoint, and Word](https://github.com/farag2/Office/blob/master/XML/EPW_VL.xml)
   - [Excel, Word](https://github.com/farag2/Office/blob/master/XML/EW_VL.xml)
 
@@ -63,4 +63,4 @@ Run .cmd (download/install) **not as Administrator**
 - [Deploy Office](https://docs.microsoft.com/en-us/deployoffice/reference-articles-for-deploying-office-365-proplus)
 
 - [Uninstall Office](https://support.microsoft.com/help/4027149)
-   - [Latest version (2.15) of OffScrubC2R.vbs](https://github.com/farag2/Office/blob/master/Office%20Uninstall)
+  - [Latest version (2.15) of OffScrubC2R.vbs](https://github.com/farag2/Office/blob/master/Office%20Uninstall)
