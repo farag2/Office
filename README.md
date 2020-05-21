@@ -8,6 +8,7 @@ PowerShell script for Office 2016/2019 setup
 	- Disable LinkedIn features in Office applications
 	- Turn off the cloud features
 	- Turn on Touch/Mouse Mode
+
 - Word
   - Do not show the Start screen when application starts
   - Do not open e-mail attachments and other uneditable files in reading view
@@ -19,6 +20,7 @@ PowerShell script for Office 2016/2019 setup
   - Enable the "Draw" tab
   - Enable the "Developer" tab
   - Remove Adobe Acrobat Pro DC COM Add-ins
+
 - Excel
   - Do not show the Start screen when application starts
   - Disable Protected View for files originating from the Internet
@@ -29,7 +31,6 @@ PowerShell script for Office 2016/2019 setup
   - Enable the "Developer" tab
 
 ## Customized .xml configs
-
 XML Configurations for downloading and installing Office 2019
  - E — Excel;
  - O — Outlook;
@@ -54,8 +55,12 @@ Run .cmd (download/install) **not as Administrator**
 
 ## Links
 - [Configure Office](https://config.office.com/deploymentsettings)
+
 - [Overview of update channels](https://docs.microsoft.com/ru-ru/DeployOffice/overview-of-update-channels-for-office-365-proplus)
+
 - [Office Deployment Tool](https://www.microsoft.com/en-us/download/details.aspx?id=49117)
+
 - [Deploy Office](https://docs.microsoft.com/en-us/deployoffice/reference-articles-for-deploying-office-365-proplus)
+
 - [Uninstall Office](https://support.microsoft.com/help/4027149)
    - [Latest version (2.15) of OffScrubC2R.vbs](https://github.com/farag2/Office/blob/master/Office%20Uninstall)
