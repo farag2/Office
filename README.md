@@ -3,7 +3,7 @@ PowerShell script for Office 2016/2019 setup
 
 ## Script Features
 - General
-   - Remove diagnostics tracking scheduled tasks
+  - Remove diagnostics tracking scheduled tasks
    - Do not send additional diagnostic and usage data to Microsoft
    - Disable LinkedIn features in Office applications
    - Turn off the cloud features
@@ -42,16 +42,16 @@ Run .cmd (download/install) **not as Administrator**
 
 ## Channels
 - VL, Semi-Annual Channel, PerpetualVL2019
-   - [Excel, Outlook, PowerPoint, and Word](https://github.com/farag2/Office/blob/master/XML/EOPW_VL.xml)
-   - [Excel, Outlook,and Word](https://github.com/farag2/Office/blob/master/XML/EOW_VL.xml)
-   - [Excel, PowerPoint, and Word](https://github.com/farag2/Office/blob/master/XML/EPW_VL.xml)
-   - [Excel, Word](https://github.com/farag2/Office/blob/master/XML/EW_VL.xml)
+  - [Excel, Outlook, PowerPoint, and Word](https://github.com/farag2/Office/blob/master/XML/EOPW_VL.xml)
+  - [Excel, Outlook,and Word](https://github.com/farag2/Office/blob/master/XML/EOW_VL.xml)
+  - [Excel, PowerPoint, and Word](https://github.com/farag2/Office/blob/master/XML/EPW_VL.xml)
+  - [Excel, Word](https://github.com/farag2/Office/blob/master/XML/EW_VL.xml)
 
 - Monthly Channel, Standart
-   - [Excel, Outlook, PowerPoint, and Word](https://github.com/farag2/Office/blob/master/XML/EOPW.xml)
-   - [Excel, Outlook, and Word](https://github.com/farag2/Office/blob/master/XML/EOW.xml)
-   - [Excel, PowerPoint, and Word](https://github.com/farag2/Office/blob/master/XML/EPW.xml)
-   - [Excel, Word](https://github.com/farag2/Office/blob/master/XML/EW.xml)
+  - [Excel, Outlook, PowerPoint, and Word](https://github.com/farag2/Office/blob/master/XML/EOPW.xml)
+  - [Excel, Outlook, and Word](https://github.com/farag2/Office/blob/master/XML/EOW.xml)
+  - [Excel, PowerPoint, and Word](https://github.com/farag2/Office/blob/master/XML/EPW.xml)
+  - [Excel, Word](https://github.com/farag2/Office/blob/master/XML/EW.xml)
 
 ## Links
 - [Configure Office](https://config.office.com/deploymentsettings)
