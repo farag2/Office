@@ -2,12 +2,12 @@
 PowerShell script for Office 2016/2019 setup
 
 ## Script Features
-- Genera
-  -  Remove diagnostics tracking scheduled tasks
-  -  Do not send additional diagnostic and usage data to Microsoft
-  - Disable LinkedIn features in Office applications
-  - Turn off the cloud features
-  - Turn on Touch/Mouse Mode
+- General
+    - Remove diagnostics tracking scheduled tasks
+    - Do not send additional diagnostic and usage data to Microsoft
+    - Disable LinkedIn features in Office applications
+    - Turn off the cloud features
+    - Turn on Touch/Mouse Mode
 - Word
   - Do not show the Start screen when application starts
   - Do not open e-mail attachments and other uneditable files in reading view
