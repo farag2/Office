@@ -4,10 +4,10 @@ PowerShell script for Office 2016/2019 setup
 ## Script Features
 - General
   - Remove diagnostics tracking scheduled tasks
-   - Do not send additional diagnostic and usage data to Microsoft
-   - Disable LinkedIn features in Office applications
-   - Turn off the cloud features
-   - Turn on Touch/Mouse Mode
+  - Do not send additional diagnostic and usage data to Microsoft
+  - Disable LinkedIn features in Office applications
+  - Turn off the cloud features
+  - Turn on Touch/Mouse Mode
 
 - Word
   - Do not show the Start screen when application starts
@@ -32,10 +32,10 @@ PowerShell script for Office 2016/2019 setup
 
 ## Customized .xml configs
 XML Configurations for downloading and installing Office 2019
- - E — Excel;
- - O — Outlook;
- - P — PowerPoint;
- - W — Word.
+- E — Excel;
+- O — Outlook;
+- P — PowerPoint;
+- W — Word.
 
 Place .xml in XML folder, and setup.exe with .cmd (download/install) in a directory upper than "XML".
 Run .cmd (download/install) **not as Administrator**
