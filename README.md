@@ -2,7 +2,7 @@
 PowerShell script for Office 2016/2019 setup
 
 ## Script Features
--  General
+- Genera
   -  Remove diagnostics tracking scheduled tasks
   -  Do not send additional diagnostic and usage data to Microsoft
   - Disable LinkedIn features in Office applications
