@@ -67,4 +67,5 @@ Run .cmd (download/install) **not as Administrator**
 - [Office Deployment Tool](https://www.microsoft.com/en-us/download/details.aspx?id=49117)
 - [Deploy Office](https://docs.microsoft.com/en-us/deployoffice/reference-articles-for-deploying-office-365-proplus)
 - [Uninstall Office](https://support.microsoft.com/help/4027149)
+  - [Microsoft Support and Recovery Assistant (SaRA), .zip](https://www.microsoft.com/en-us/download/100607)
   - [Latest version (2.15) of OffScrubC2R.vbs](https://github.com/farag2/Office/blob/master/Office%20Uninstall)
