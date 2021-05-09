@@ -5,7 +5,7 @@ Unregister-ScheduledTask OfficeTelemetryAgentFallBack2016, OfficeTelemetryAgentL
 
 # Do not send additional diagnostic and usage data to Microsoft
 # Выключить необязательные сетевые функции
-New-ItemProperty -Path HKCU:\Software\Microsoft\Office\Common\ClientTelemetry -Name SendTelemetry -PropertyType DWord -Value 1 -Force
+New-ItemProperty -Path HKCU:\Software\Microsoft\Office\Common\ClientTelemetry -Name SendTelemetry -PropertyType DWord -Value 3 -Force
 
 # Disable LinkedIn features in Office applications
 # Не использовать функции LinkedIn
