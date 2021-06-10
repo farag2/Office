@@ -2,9 +2,9 @@
 
 ## Overview
 
-PowerShell script for Office 2016/2019 setup
+`Office.ps1` is a PowerShell script for Office 2016/2019 setup
 
-## Script Features
+## Features
 
 * General
   * Remove diagnostics tracking scheduled tasks
@@ -34,9 +34,7 @@ PowerShell script for Office 2016/2019 setup
   * Enable the "Draw" tab
   * Enable the "Developer" tab
 
-## Customized .xml configs
-
-XML Configurations for downloading and installing Office 2019
+## Download and customize Office 2019
 
 * E — Excel;
 * O — Outlook;
