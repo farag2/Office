@@ -1,2 +1,2 @@
-"%~dp0setup.exe" /configure "%~dp0XML\EPW.xml"
+"%~dp0..\setup.exe" /configure "%~dp0..\XML\EPW.xml"
 pause
