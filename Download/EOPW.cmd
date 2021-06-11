@@ -1,2 +1,2 @@
-"%~dp0setup.exe" /download "%~dp0XML\EOPW.xml"
+"%~dp0..\setup.exe" /download "%~dp0..\XML\EOPW.xml"
 pause
