@@ -44,7 +44,6 @@ New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Word\Options -Name A
 
 # Disable Protected View for files originating from the Internet
 # Отключить защищенный просмотр для файлов из Интернета
-
 if (-not (Test-Path HKCU:\Software\Microsoft\Office\16.0\Word\Security\ProtectedView))
 {
 	New-Item -Path HKCU:\Software\Microsoft\Office\16.0\Word\Security\ProtectedView -Force
