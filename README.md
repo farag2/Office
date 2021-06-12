@@ -6,6 +6,8 @@
 
 Download and install `Office 2019` via ODT with pre-configured xml configurations
 
+`Office 2019` supports `Windows 10` only
+
 ## Features
 
 <details>
