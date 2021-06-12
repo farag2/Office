@@ -49,8 +49,8 @@ Download and install `Office 2019` via ODT with pre-configured xml configuration
 * P — PowerPoint;
 * W — Word.
 
-* Download the archive from the release page and run `EOPW.cmd` or `EOPW.ps1` to download the whole Office 2019 package. It will be downloaded into th root folder (`Office`)
-* After downloading run one of the installed script **not as Administrator** from the `Install` folder
+* Download the archive from the release page and run `EOPW.cmd` or `EOPW.ps1` to download the whole Office 2019 package. It will be downloaded into the root folder (`Office`)
+* After downloading run one of the install script **not as Administrator** from the `Install` folder
 
 ## Channels
 
