@@ -4,9 +4,14 @@
 
 `Office.ps1` is a PowerShell script for Office 2016/2019 setup
 
+Download and install `Office 2019` via ODT with pre-configured xml configurations
+
 ## Features
 
-* General
+<details>
+  <summary>List</summary>
+
+ * General
   * Remove diagnostics tracking scheduled tasks
   * Do not send additional diagnostic and usage data to Microsoft
   * Disable LinkedIn features in Office applications
@@ -33,7 +38,8 @@
   * Save AutoRecover information every 3 minutes
   * Enable the "Draw" tab
   * Enable the "Developer" tab
-
+</details>
+ 
 ## Download and customize Office 2019
 
 * E — Excel;
@@ -41,22 +47,16 @@
 * P — PowerPoint;
 * W — Word.
 
-Place .xml in XML folder, and setup.exe with .cmd (download/install) in a directory upper than "XML".
-Run .cmd (download/install) **not as Administrator**
+* Download the archive from the release page and run `EOPW.cmd` or `EOPW.ps1` to download the whole Office 2019 package. It will be downloaded into th root folder (`Office`)
+* After downloading run one of the installed script **not as Administrator** from the `Install` folder
 
 ## Channels
 
-* VL, Semi-Annual Channel, PerpetualVL2019
-  * [Excel, Outlook, PowerPoint, and Word](https://github.com/farag2/Office/blob/master/XML/EOPW_VL.xml)
-  * [Excel, Outlook, and Word](https://github.com/farag2/Office/blob/master/XML/EOW_VL.xml)
-  * [Excel, PowerPoint, and Word](https://github.com/farag2/Office/blob/master/XML/EPW_VL.xml)
-  * [Excel, Word](https://github.com/farag2/Office/blob/master/XML/EW_VL.xml)
-
 * Monthly Channel, Standart
-  * [Excel, Outlook, PowerPoint, and Word](https://github.com/farag2/Office/blob/master/XML/EOPW.xml)
-  * [Excel, Outlook, and Word](https://github.com/farag2/Office/blob/master/XML/EOW.xml)
-  * [Excel, PowerPoint, and Word](https://github.com/farag2/Office/blob/master/XML/EPW.xml)
-  * [Excel, Word](https://github.com/farag2/Office/blob/master/XML/EW.xml)
+  * [Excel, Outlook, PowerPoint, and Word](https://github.com/farag2/Office/blob/master/XML/Download/EOPW.xml)
+  * [Excel, Outlook, and Word](https://github.com/farag2/Office/blob/master/XML/Download/EOW.xml)
+  * [Excel, PowerPoint, and Word](https://github.com/farag2/Office/blob/master/XML/Download/EPW.xml)
+  * [Excel, Word](https://github.com/farag2/Office/blob/master/XML/Download/EW.xml)
 
 ## Links
 
