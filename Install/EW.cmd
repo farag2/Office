@@ -1,2 +1,2 @@
-"%~dp0..\setup.exe" /configure "%~dp0..\XML\EW.xml"
+"%~dp0..\setup.exe" /configure "%~dp0..\XML\Install\EW.xml"
 pause
