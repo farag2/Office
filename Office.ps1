@@ -13,12 +13,13 @@ if (-not (Test-Path -Path HKCU:\Software\Microsoft\Office\16.0\Common\LinkedIn))
 }
 New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Common\LinkedIn -Name OfficeLinkedIn -PropertyType DWord -Value 0 -Force
 
-# Turn off the cloud features
+<# Turn off the cloud features
 if (-not (Test-Path -Path HKCU:\Software\Microsoft\Office\16.0\Common\SignIn))
 {
 	New-Item -Path HKCU:\Software\Microsoft\Office\16.0\Common\SignIn -Force
 }
 New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Common\SignIn -Name SignInOptions -PropertyType DWord -Value 3 -Force
+#>
 
 # Turn on Touch/Mouse Mode
 New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Common -Name OverridePointerMode -PropertyType DWord -Value 2 -Force
@@ -34,9 +35,9 @@ if (-not (Test-Path -Path HKCU:\Software\Microsoft\Office\16.0\Word\Options))
 New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Word\Options -Name DisableBootToOfficeStart -PropertyType DWord -Value 1 -Force
 
 # Do not open e-mail attachments and other uneditable files in reading view
-New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Word\Options -Name AllowAutoReadingMode -PropertyType DWord -Value 0 -Force
+# New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Word\Options -Name AllowAutoReadingMode -PropertyType DWord -Value 0 -Force
 
-# Disable Protected View for files originating from the Internet
+<# Disable Protected View for files originating from the Internet
 if (-not (Test-Path HKCU:\Software\Microsoft\Office\16.0\Word\Security\ProtectedView))
 {
 	New-Item -Path HKCU:\Software\Microsoft\Office\16.0\Word\Security\ProtectedView -Force
@@ -56,6 +57,7 @@ if (-not (Test-Path HKCU:\Software\Microsoft\Office\16.0\Word\Security\Protected
 	New-Item -Path HKCU:\Software\Microsoft\Office\16.0\Word\Security\ProtectedView -Force
 }
 New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Word\Security\ProtectedView -Name DisableAttachmentsInPV -PropertyType DWord -Value 1 -Force
+#>
 
 # Show the ruler
 New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Word\Options -Name Ruler -PropertyType DWord -Value 1 -Force
@@ -78,7 +80,7 @@ if (-not (Test-Path -Path HKCU:\Software\Microsoft\Office\16.0\Excel\Options))
 }
 New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Excel\Options -Name DisableBootToOfficeStart -PropertyType DWord -Value 1 -Force
 
-# Do not open e-mail attachments and other uneditable files in reading view
+<# Do not open e-mail attachments and other uneditable files in reading view
 New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Excel\Options -Name AllowAutoReadingMode -PropertyType DWord -Value 0 -Force
 
 # Disable Protected View for files originating from the Internet
@@ -101,6 +103,7 @@ if (-not (Test-Path HKCU:\Software\Microsoft\Office\16.0\Excel\Security\Protecte
 	New-Item -Path HKCU:\Software\Microsoft\Office\16.0\Excel\Security\ProtectedView -Force
 }
 New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Excel\Security\ProtectedView -Name DisableAttachmentsInPV -PropertyType DWord -Value 1 -Force
+#>
 
 # Save AutoRecover information every 3 minutes
 New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Excel\Options -Name AutoRecoverTime -PropertyType DWord -Value 3 -Force
