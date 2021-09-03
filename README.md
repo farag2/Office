@@ -2,9 +2,14 @@
 
 ## Overview
 
-`Office.ps1` is a PowerShell script for Office 2016/2019 setup
+# Download Office 2019 or Office 365 via ODT
 
-Download and install `Office 2019` via ODT with pre-configured xml configurations
+```powershell
+  Office -Branch 2019 -Channel SemiAnnual -Components Word, Excel, PowerPoint
+  Office -Branch 365 -Channel SemiAnnual -Components Word, Excel, PowerPoint
+```
+
+`Office.ps1` is a PowerShell script for Office 2016/2019 setup
 
 `Office 2019` supports `Windows 10` only
 
@@ -41,7 +46,10 @@ Download and install `Office 2019` via ODT with pre-configured xml configuration
   * Enable the "Draw" tab
   * Enable the "Developer" tab
 </details>
- 
+
+<details>
+  <summary>Old</summary>
+
 ## Download and customize Office 2019
 
 * E — Excel;
@@ -59,6 +67,7 @@ Download and install `Office 2019` via ODT with pre-configured xml configuration
   * [Excel, Outlook, and Word](https://github.com/farag2/Office/blob/master/XML/Download/EOW.xml)
   * [Excel, PowerPoint, and Word](https://github.com/farag2/Office/blob/master/XML/Download/EPW.xml)
   * [Excel, Word](https://github.com/farag2/Office/blob/master/XML/Download/EW.xml)
+</details>
 
 ## Links
 
