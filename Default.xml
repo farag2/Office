@@ -1,0 +1,32 @@
+<Configuration ID="d52d2077-8251-4da7-8bb6-d554f52179c3">
+  <Add OfficeClientEdition="64" Channel="">
+    <Product ID="">
+      <Language ID="ru-ru" />
+      <Language ID="en-us" />
+      <ExcludeApp ID="Access" />
+      <ExcludeApp ID="Excel" />
+      <ExcludeApp ID="Groove" />
+      <ExcludeApp ID="Lync" />
+      <ExcludeApp ID="OneDrive" />
+      <ExcludeApp ID="OneNote" />
+      <ExcludeApp ID="Outlook" />
+      <ExcludeApp ID="PowerPoint" />
+      <ExcludeApp ID="Publisher" />
+      <ExcludeApp ID="Teams" />
+      <ExcludeApp ID="Word" />
+    </Product>
+    <Product ID="AccessRuntimeRetail">
+      <Language ID="ru-ru" />
+      <Language ID="en-us" />
+    </Product>
+    <Product ID="ProofingTools">
+      <Language ID="en-us" />
+      <Language ID="ru-ru" />
+    </Product>
+  </Add>
+  <Property Name="PinIconsToTaskbar" Value="TRUE" />
+  <Property Name="FORCEAPPSHUTDOWN" Value="TRUE" />
+  <Updates Enabled="TRUE" />
+  <Display Level="Full" AcceptEULA="TRUE" />
+  <Logging Level="Off" />
+</Configuration>
