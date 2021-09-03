@@ -9,7 +9,7 @@
   Office -Branch 365 -Channel SemiAnnual -Components Word, Excel, PowerPoint
 ```
 
-`Office.ps1` is a PowerShell script for Office 2016/2019 setup
+`Office.ps1` is a PowerShell script for configuring Office 2016/2019/365
 
 `Office 2019` supports `Windows 10` only
 
