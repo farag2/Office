@@ -79,4 +79,4 @@
   * SaRA
     * [zip](https://www.microsoft.com/en-us/download/100607)
     * [exe](https://aka.ms/SaRASetup)
-  * [OffScrubC2R.vbs 2.15](https://github.com/farag2/Office/blob/master/Office%20Uninstall)
+  * [OffScrubC2R.vbs 2.15](https://github.com/farag2/Office/tree/master/Office_Uninstall)
