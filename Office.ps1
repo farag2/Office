@@ -148,3 +148,5 @@ function Office
 }
 
 Office -Branch 365 -Channel SemiAnnual -Components Word, Excel, PowerPoint
+
+# Start-Process -FilePath "$PSScriptRoot\setup.exe" -ArgumentList "/configure `"$PSScriptRoot\Config.xml`"" -Wait
