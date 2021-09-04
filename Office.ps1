@@ -150,7 +150,7 @@ function Office
 	Remove-item -Path "$PSScriptRoot\officedeploymenttool", "$PSScriptRoot\officedeploymenttool.exe"  -Recurse -Force
 
 	# Start downloading to the Office folder
-	Start-Process -FilePath "$PSScriptRoot\setup.exe" -ArgumentList "/download","`"$PSScriptRoot\Config.xml`"" -Wait
+	Start-Process -FilePath "$PSScriptRoot\setup.exe" -ArgumentList "/download `"$PSScriptRoot\Config.xml`"" -Wait
 }
 
 Office -Branch 365 -Channel SemiAnnual -Components Word, Excel, PowerPoint
