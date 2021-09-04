@@ -5,7 +5,7 @@
 # Download Office 2019 or Office 365 via ODT
 
 ```powershell
-  Office -Branch 2019 -Channel SemiAnnual -Components Word, Excel, PowerPoint
+  Office -Branch 2019 -Channel Current -Components Word, Excel, PowerPoint
   Office -Branch 365 -Channel SemiAnnual -Components Word, Excel, PowerPoint
 ```
 
