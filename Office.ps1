@@ -41,6 +41,10 @@ function Office
 		$Components
 	)
 
+	if (-not (Test-Path -Path "$PSScriptRoot\Default.xml)
+	{
+		Write-Warning -Message "Default.xml doesn't exist"
+	}
 	[xml]$Config = Get-Content -Path "$PSScriptRoot\Default.xml" -Encoding Default -Force
 
 	switch ($Branch)
