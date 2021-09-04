@@ -15,10 +15,6 @@
       <ExcludeApp ID="Teams" />
       <ExcludeApp ID="Word" />
     </Product>
-    <Product ID="AccessRuntimeRetail">
-      <Language ID="ru-ru" />
-      <Language ID="en-us" />
-    </Product>
     <Product ID="ProofingTools">
       <Language ID="en-us" />
       <Language ID="ru-ru" />
