@@ -15,7 +15,7 @@
 	Office -Branch 2019 -Channel Current -Components Word, Excel, PowerPoint
 
 	.EXAMPLE Download Office 365 with the Word, Excel, PowerPoint components
-	Office -Branch 365 -Channel SemiAnnual -Components Word, Excel, PowerPoint
+	Office -Branch 365 -Channel SemiAnnual -Components Excel, OneDrive, Outlook, PowerPoint, Teams, Word
 
 	.LINK
 	https://config.office.com/deploymentsettings
@@ -89,8 +89,62 @@ function Office
 			}
 			OneDrive
 			{
-				$Node = $Config.SelectSingleNode("//ExcludeApp[@ID='OneDrive']")
-				$Node.ParentNode.RemoveChild($Node)
+				$OneDrive = Get-Package -Name "Microsoft OneDrive" -ProviderName Programs -Force -ErrorAction Ignore
+				if (-not $OneDrive)
+				{
+					if (Test-Path -Path $env:SystemRoot\SysWOW64\OneDriveSetup.exe)
+					{
+						Write-Information -MessageData "" -InformationAction Continue
+						Write-Verbose -Message "OneDrive Installing" -Verbose
+						Start-Process -FilePath $env:SystemRoot\SysWOW64\OneDriveSetup.exe
+					}
+					else
+					{
+						try
+						{
+							# Downloading the latest OneDrive installer x64
+							if ((Invoke-WebRequest -Uri https://www.google.com -UseBasicParsing -DisableKeepAlive -Method Head).StatusDescription)
+							{
+								Write-Information -MessageData "" -InformationAction Continue
+								Write-Verbose -Message "OneDrive Downloading" -Verbose
+
+								[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
+								# Parse XML to get the URL
+								# https://go.microsoft.com/fwlink/p/?LinkID=844652
+								$Parameters = @{
+									Uri             = "https://g.live.com/1rewlive5skydrive/OneDriveProduction"
+									UseBasicParsing = $true
+									Verbose         = $true
+								}
+								$Content = Invoke-RestMethod @Parameters
+
+								# Remove invalid chars
+								[xml]$OneDriveXML = $Content -replace "ï»¿", ""
+
+								$OneDriveURL = ($OneDriveXML).root.update.amd64binary.url[-1]
+								$DownloadsFolder = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" -Name "{374DE290-123F-4565-9164-39C4925E467B}"
+								$Parameters = @{
+									Uri     = $OneDriveURL
+									OutFile = "$DownloadsFolder\OneDriveSetup.exe"
+									Verbose = $true
+								}
+								Invoke-WebRequest @Parameters
+
+								Start-Process -FilePath "$DownloadsFolder\OneDriveSetup.exe"
+							}
+						}
+						catch [System.Net.WebException]
+						{
+							Write-Warning -Message "No Internet Connection"
+
+							return
+						}
+					}
+
+					Get-ScheduledTask -TaskName "Onedrive* Update*" | Enable-ScheduledTask
+					Get-ScheduledTask -TaskName "Onedrive* Update*" | Start-ScheduledTask
+				}
 			}
 			Outlook
 			{
@@ -121,12 +175,7 @@ function Office
 	# https://www.microsoft.com/en-us/download/details.aspx?id=49117
 	[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
-	$Parameters = @{
-		Uri             = "https://www.microsoft.com/en-us/download/confirmation.aspx?id=49117"
-		UseBasicParsing = $true
-		Verbose         = $true
-	}
-	$ODTURL = ((Invoke-WebRequest @Parameters).Links | Where-Object {$_.outerHTML -like "*click here to download manually*"}).href
+	$ODTURL = ((Invoke-WebRequest -Uri "https://www.microsoft.com/en-us/download/confirmation.aspx?id=49117" -UseBasicParsing).Links | Where-Object {$_.outerHTML -like "*click here to download manually*"}).href
 	$Parameters = @{
 		Uri             = $ODTURL
 		OutFile         = "$PSScriptRoot\officedeploymenttool.exe"
@@ -147,12 +196,13 @@ function Office
 
 	Start-Sleep -Seconds 1
 
-	Remove-item -Path "$PSScriptRoot\officedeploymenttool", "$PSScriptRoot\officedeploymenttool.exe"  -Recurse -Force
+	Remove-item -Path "$PSScriptRoot\officedeploymenttool", "$PSScriptRoot\officedeploymenttool.exe" -Recurse -Force
 
 	# Start downloading to the Office folder
 	Start-Process -FilePath "$PSScriptRoot\setup.exe" -ArgumentList "/download `"$PSScriptRoot\Config.xml`"" -Wait
 }
 
-Office -Branch 365 -Channel SemiAnnual -Components Word, Excel, PowerPoint
+Office -Branch 365 -Channel SemiAnnual -Components Excel, OneDrive, Outlook, PowerPoint, Teams, Word
 
+# Install
 # Start-Process -FilePath "$PSScriptRoot\setup.exe" -ArgumentList "/configure `"$PSScriptRoot\Config.xml`"" -Wait
