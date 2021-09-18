@@ -6,7 +6,7 @@
 
 ```powershell
   Office -Branch 2019 -Channel Current -Components Word, Excel, PowerPoint
-  Office -Branch 365 -Channel SemiAnnual -Components Word, Excel, PowerPoint
+  Office -Branch 365 -Channel SemiAnnual -Components Excel, OneDrive, Outlook, PowerPoint, Teams, Word
 ```
 
 `Office.ps1` is a PowerShell script for configuring Office 2016/2019/365
