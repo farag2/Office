@@ -1,6 +1,6 @@
 ﻿#region Features
 # Remove diagnostics tracking scheduled tasks
-Unregister-ScheduledTask OfficeTelemetryAgentFallBack2016, OfficeTelemetryAgentLogOn2016 -Confirm:$false -ErrorAction Ignore
+Unregister-ScheduledTask -TaskName OfficeTelemetryAgentFallBack2016, OfficeTelemetryAgentLogOn2016 -Confirm:$false -ErrorAction Ignore
 
 # Do not send additional diagnostic and usage data to Microsoft
 New-ItemProperty -Path HKCU:\Software\Microsoft\Office\Common\ClientTelemetry -Name SendTelemetry -PropertyType DWord -Value 3 -Force
