@@ -142,8 +142,7 @@ function Office
 						}
 					}
 
-					Get-ScheduledTask -TaskName "Onedrive* Update*" | Enable-ScheduledTask
-					Get-ScheduledTask -TaskName "Onedrive* Update*" | Start-ScheduledTask
+					Get-ScheduledTask -TaskName "Onedrive* Update*" | Enable-ScheduledTask | Start-ScheduledTask
 				}
 			}
 			Outlook
@@ -171,11 +170,15 @@ function Office
 
 	$Config.Save("$PSScriptRoot\Config.xml")
 
-	# Download Office Deployement Tool
+	# Download Office Deployment Tool
 	# https://www.microsoft.com/en-us/download/details.aspx?id=49117
 	[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
-	$ODTURL = ((Invoke-WebRequest -Uri "https://www.microsoft.com/en-us/download/confirmation.aspx?id=49117" -UseBasicParsing).Links | Where-Object {$_.outerHTML -like "*click here to download manually*"}).href
+	$Parameters = @{
+		Uri              = "https://www.microsoft.com/en-us/download/confirmation.aspx?id=49117"
+		UseBasicParsing  = $true
+	}
+	$ODTURL = ((Invoke-WebRequest @Parameters).Links | Where-Object {$_.outerHTML -match "click here to download manually"}).href
 	$Parameters = @{
 		Uri             = $ODTURL
 		OutFile         = "$PSScriptRoot\officedeploymenttool.exe"
