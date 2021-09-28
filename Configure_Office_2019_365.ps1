@@ -166,5 +166,5 @@ if (-not (Test-Path -Path HKCU:\Software\Microsoft\Office\16.0\Outlook\Options))
 New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Outlook\Options -Name DrawInkTab -PropertyType DWord -Value 1 -Force
 
 # Enable the classic ribbon
-New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Outlook\Preferences -Name EnableSingleLineRibbon -PropertyType DWord -Value 1 -Force
+New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Outlook\Preferences -Name EnableSingleLineRibbon -PropertyType DWord -Value 0 -Force
 #endregion Outlook
