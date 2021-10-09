@@ -1,4 +1,4 @@
-﻿#region Features
+#region Features
 # Remove diagnostics tracking scheduled tasks
 Unregister-ScheduledTask -TaskName OfficeTelemetryAgentFallBack2016, OfficeTelemetryAgentLogOn2016 -Confirm:$false -ErrorAction Ignore
 
