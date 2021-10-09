@@ -1,37 +1,40 @@
 <#
 	.SYNOPSIS
-	Download Office 2019 or 365
+	Download Office 2019, 2021, and 365
 
 	.PARAMETER Branch
-	Choose Office branch: 2019 or 365
+	Choose Office branch: 2019, 2021, and 365
 
 	.PARAMETER Channel
-	Choose Office channel: Current or SemiAnnual
+	Choose Office channel: 2019, 2021, and 365
 
 	.PARAMETER Components
 	Choose Office components: Access, OneDrive, Outlook, Word, Excel, PowerPoint, Teams
 
 	.EXAMPLE Download Office 2019 with the Word, Excel, PowerPoint components
-	Office -Branch 2019 -Channel Current -Components Word, Excel, PowerPoint
+	DownloadOffice -Branch 2019 -Channel 2019 -Components Word, Excel, PowerPoint
 
-	.EXAMPLE Download Office 365 with the Word, Excel, PowerPoint components
-	Office -Branch 365 -Channel SemiAnnual -Components Excel, OneDrive, Outlook, PowerPoint, Teams, Word
+	.EXAMPLE Download Office 2021 with the Excel, Word components
+	DownloadOffice -Branch 2021 -Channel 2021 -Components Excel, Word
+
+	.EXAMPLE Download Office 365 with the Excel, Word, PowerPoint components
+	DownloadOffice -Branch 365 -Channel 365 -Components Excel, OneDrive, Outlook, PowerPoint, Teams, Word
 
 	.LINK
 	https://config.office.com/deploymentsettings
 #>
-function Office
+function DownloadOffice
 {
 	[CmdletBinding()]
 	param
 	(
 		[Parameter(Mandatory = $true)]
-		[ValidateSet("2019", "365")]
+		[ValidateSet("2019", "2021", "365")]
 		[string]
 		$Branch,
 
 		[Parameter(Mandatory = $true)]
-		[ValidateSet("Current", "SemiAnnual")]
+		[ValidateSet("2019", "2021", "365")]
 		[string]
 		$Channel,
 
@@ -55,6 +58,10 @@ function Office
 		{
 			($Config.Configuration.Add.Product | Where-Object -FilterScript {$_.ID -eq ""}).ID = "Standard2019Retail"
 		}
+		2021
+		{
+			($Config.Configuration.Add.Product | Where-Object -FilterScript {$_.ID -eq ""}).ID = "Standard2021Volume"
+		}
 		365
 		{
 			($Config.Configuration.Add.Product | Where-Object -FilterScript {$_.ID -eq ""}).ID = "O365ProPlusRetail"
@@ -63,11 +70,15 @@ function Office
 
 	switch ($Channel)
 	{
-		Current
+		2019
 		{
 			($Config.Configuration.Add | Where-Object -FilterScript {$_.Channel -eq ""}).Channel = "Current"
 		}
-		SemiAnnual
+		2021
+		{
+			($Config.Configuration.Add | Where-Object -FilterScript {$_.Channel -eq ""}).Channel = "PerpetualVL2021"
+		}
+		365
 		{
 			($Config.Configuration.Add | Where-Object -FilterScript {$_.Channel -eq ""}).Channel = "SemiAnnual"
 		}
@@ -103,6 +114,17 @@ function Office
 						try
 						{
 							# Downloading the latest OneDrive installer x64
+							$Parameters = @{
+								Uri              = "https://www.google.com"
+								Method           = "Head"
+								DisableKeepAlive = $true
+								UseBasicParsing  = $true
+							}
+							if (-not (Invoke-WebRequest @Parameters).StatusDescription)
+							{
+								return
+							}
+
 							if ((Invoke-WebRequest -Uri https://www.google.com -UseBasicParsing -DisableKeepAlive -Method Head).StatusDescription)
 							{
 								Write-Information -MessageData "" -InformationAction Continue
@@ -137,8 +159,6 @@ function Office
 						catch [System.Net.WebException]
 						{
 							Write-Warning -Message "No Internet Connection"
-
-							return
 						}
 					}
 
@@ -205,7 +225,7 @@ function Office
 	Start-Process -FilePath "$PSScriptRoot\setup.exe" -ArgumentList "/download `"$PSScriptRoot\Config.xml`"" -Wait
 }
 
-Office -Branch 365 -Channel SemiAnnual -Components Excel, OneDrive, Outlook, PowerPoint, Teams, Word
+# DownloadOffice -Branch 2021 -Channel 2021 -Components Excel, Word
 
 # Install
-# Start-Process -FilePath "$PSScriptRoot\setup.exe" -ArgumentList "/configure `"$PSScriptRoot\Config.xml`"" -Wait
+Start-Process -FilePath "$PSScriptRoot\setup.exe" -ArgumentList "/configure `"$PSScriptRoot\Config.xml`"" -Wait
