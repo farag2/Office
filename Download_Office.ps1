@@ -56,7 +56,7 @@ function DownloadOffice
 	{
 		2019
 		{
-			($Config.Configuration.Add.Product | Where-Object -FilterScript {$_.ID -eq ""}).ID = "Standard2019Retail"
+			($Config.Configuration.Add.Product | Where-Object -FilterScript {$_.ID -eq ""}).ID = "Standard2019Volume"
 		}
 		2021
 		{
