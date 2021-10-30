@@ -5,13 +5,14 @@
 # Download Office 2019 or Office 365 via ODT
 
 ```powershell
-  Office -Branch 2019 -Channel Current -Components Word, Excel, PowerPoint
-  Office -Branch 365 -Channel SemiAnnual -Components Excel, OneDrive, Outlook, PowerPoint, Teams, Word
+  DownloadOffice -Branch 2019 -Channel 2019 -Components Word, Excel, PowerPoint
+  DownloadOffice -Branch 2021 -Channel 2021 -Components Excel, Word
+  DownloadOffice -Branch 365 -Channel 365 -Components Excel, OneDrive, Outlook, PowerPoint, Teams, Word
 ```
 
 `Office.ps1` is a PowerShell script for configuring Office 2016/2019/365
 
-`Office 2019` supports `Windows 10` only
+`Office 2019 & 2021` supports `Windows 10` & `Windows 11` only
 
 ## Features
 
