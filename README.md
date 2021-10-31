@@ -2,7 +2,7 @@
 
 ## Overview
 
-# Download Office 2019 or Office 365 via ODT
+# Download Office via ODT
 
 ```powershell
   DownloadOffice -Branch Standard2019Retail -Channel Current -Components Word, Excel, PowerPoint
