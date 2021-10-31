@@ -12,13 +12,13 @@
 	Choose Office components: Access, OneDrive, Outlook, Word, Excel, PowerPoint, Teams
 
 	.EXAMPLE Download Office 2019 with the Word, Excel, PowerPoint components
-	DownloadOffice -Branch Standard2019Volume -Channel PerpetualVL2019 -Components Word, Excel, PowerPoint
+	DownloadOffice -Branch Standard2019Retail -Channel Current -Components Word, Excel, PowerPoint
 
 	.EXAMPLE Download Office 2021 with the Excel, Word components
-	DownloadOffice -Branch Standard2021Volume -Channel PerpetualVL2021 -Components Excel, Word
+	DownloadOffice -Branch Standard2021Volume -Channel O365ProPlusRetail -Components Excel, Word
 
 	.EXAMPLE Download Office 365 with the Excel, Word, PowerPoint components
-	DownloadOffice -Branch O365ProPlusRetail -Channel SemiAnnual -Components Excel, OneDrive, Outlook, PowerPoint, Teams, Word
+	DownloadOffice -Branch 365 -Channel 365 -Components Excel, OneDrive, Outlook, PowerPoint, Teams, Word
 
 	.LINK
 	https://config.office.com/deploymentsettings
@@ -29,12 +29,12 @@ function DownloadOffice
 	param
 	(
 		[Parameter(Mandatory = $true)]
-		[ValidateSet("Standard2019Volume", "Standard2021Volume", "O365ProPlusRetail")]
+		[ValidateSet("Standard2019Retail", "Standard2021Volume", "O365ProPlusRetail")]
 		[string]
 		$Branch,
 
 		[Parameter(Mandatory = $true)]
-		[ValidateSet("PerpetualVL2019", "PerpetualVL2021", "SemiAnnual")]
+		[ValidateSet("Current", "PerpetualVL2021", "SemiAnnual")]
 		[string]
 		$Channel,
 
@@ -54,9 +54,9 @@ function DownloadOffice
 
 	switch ($Branch)
 	{
-		Standard2019Volume
+		Standard2019Retail
 		{
-			($Config.Configuration.Add.Product | Where-Object -FilterScript {$_.ID -eq ""}).ID = "Standard2019Volume"
+			($Config.Configuration.Add.Product | Where-Object -FilterScript {$_.ID -eq ""}).ID = "Standard2019Retail"
 		}
 		Standard2021Volume
 		{
@@ -70,9 +70,9 @@ function DownloadOffice
 
 	switch ($Channel)
 	{
-		PerpetualVL2019
+		Current
 		{
-			($Config.Configuration.Add | Where-Object -FilterScript {$_.Channel -eq ""}).Channel = "PerpetualVL2019"
+			($Config.Configuration.Add | Where-Object -FilterScript {$_.Channel -eq ""}).Channel = "Current"
 		}
 		PerpetualVL2021
 		{
@@ -226,7 +226,7 @@ function DownloadOffice
 }
 
 # Download
-# DownloadOffice -Branch PerpetualVL2021 -Channel PerpetualVL2021 -Components Excel, Word
+# DownloadOffice -Branch Standard2021Volume -Channel O365ProPlusRetail -Components Excel, Word
 
 # Install
 # Start-Process -FilePath "$PSScriptRoot\setup.exe" -ArgumentList "/configure `"$PSScriptRoot\Config.xml`"" -Wait
