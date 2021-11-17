@@ -15,10 +15,10 @@
 	DownloadOffice -Branch Standard2019Retail -Channel Current -Components Word, Excel, PowerPoint
 
 	.EXAMPLE Download Office 2021 with the Excel, Word components
-	DownloadOffice -Branch Standard2021Volume -Channel O365ProPlusRetail -Components Excel, Word
+	DownloadOffice -Branch Standard2021Volume -Channel PerpetualVL2021 -Components Excel, Word
 
 	.EXAMPLE Download Office 365 with the Excel, Word, PowerPoint components
-	DownloadOffice -Branch 365 -Channel 365 -Components Excel, OneDrive, Outlook, PowerPoint, Teams, Word
+	DownloadOffice -Branch O365ProPlusRetail -Channel SemiAnnual -Components Excel, OneDrive, Outlook, PowerPoint, Teams, Word
 
 	.LINK
 	https://config.office.com/deploymentsettings
@@ -225,8 +225,8 @@ function DownloadOffice
 	Start-Process -FilePath "$PSScriptRoot\setup.exe" -ArgumentList "/download `"$PSScriptRoot\Config.xml`"" -Wait
 }
 
-# Download
-# DownloadOffice -Branch Standard2021Volume -Channel O365ProPlusRetail -Components Excel, Word
+# Download Offce. Firstly, download Office, then install it
+# DownloadOffice -Branch Standard2021Volume -Channel PerpetualVL2021 -Components Excel, Word
 
 # Install
 # Start-Process -FilePath "$PSScriptRoot\setup.exe" -ArgumentList "/configure `"$PSScriptRoot\Config.xml`"" -Wait
