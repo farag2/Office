@@ -22,6 +22,9 @@ New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Common\SignIn -Name 
 # Turn on Touch/Mouse Mode
 New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Common -Name OverridePointerMode -PropertyType DWord -Value 2 -Force
 New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Common -Name OverrideTabletMode -PropertyType DWord -Value 1 -Force
+
+# Enable the dark theme
+New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Common -Name "UI Theme" -PropertyType DWord -Value 3 -Force
 #endregion Features
 
 #region Word
