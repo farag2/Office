@@ -6,8 +6,8 @@
 
 ```powershell
   DownloadOffice -Branch Standard2019Retail -Channel Current -Components Word, Excel, PowerPoint
-  DownloadOffice -Branch Standard2021Volume -Channel O365ProPlusRetail -Components Excel, Word
-  DownloadOffice -Branch 365 -Channel 365 -Components Excel, OneDrive, Outlook, PowerPoint, Teams, Word
+  DownloadOffice -Branch Standard2021Volume -Channel PerpetualVL2021 -Components Excel, Word
+  DownloadOffice -Branch O365ProPlusRetail -Channel SemiAnnual -Components Excel, OneDrive, Outlook, PowerPoint, Teams, Word
 ```
 
 `Office.ps1` is a PowerShell script for configuring Office 2016/2019/365
