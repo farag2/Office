@@ -144,7 +144,7 @@ function DownloadOffice
 								# Remove invalid chars
 								[xml]$OneDriveXML = $Content -replace "ï»¿", ""
 
-								$OneDriveURL = ($OneDriveXML).root.update.amd64binary.url[-1]
+								$OneDriveURL = ($OneDriveXML).root.update.amd64binary.url
 								$DownloadsFolder = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" -Name "{374DE290-123F-4565-9164-39C4925E467B}"
 								$Parameters = @{
 									Uri     = $OneDriveURL
