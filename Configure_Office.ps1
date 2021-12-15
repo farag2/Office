@@ -12,13 +12,6 @@ if (-not (Test-Path -Path HKCU:\Software\Microsoft\Office\16.0\Common\LinkedIn))
 }
 New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Common\LinkedIn -Name OfficeLinkedIn -PropertyType DWord -Value 0 -Force
 
-# Turn off the cloud features
-if (-not (Test-Path -Path HKCU:\Software\Microsoft\Office\16.0\Common\SignIn))
-{
-	New-Item -Path HKCU:\Software\Microsoft\Office\16.0\Common\SignIn -Force
-}
-New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Common\SignIn -Name SignInOptions -PropertyType DWord -Value 3 -Force
-
 # Turn on Touch/Mouse Mode
 New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Common -Name OverridePointerMode -PropertyType DWord -Value 2 -Force
 New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Common -Name OverrideTabletMode -PropertyType DWord -Value 1 -Force
@@ -169,5 +162,9 @@ if (-not (Test-Path -Path HKCU:\Software\Microsoft\Office\16.0\Outlook\Options))
 New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Outlook\Options -Name DrawInkTab -PropertyType DWord -Value 1 -Force
 
 # Enable the classic ribbon
+if (-not (Test-Path -Path HKCU:\Software\Microsoft\Office\16.0\Outlook\Preferences))
+{
+	New-Item -Path HKCU:\Software\Microsoft\Office\16.0\Outlook\Preferences -Force
+}
 New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Outlook\Preferences -Name EnableSingleLineRibbon -PropertyType DWord -Value 0 -Force
 #endregion Outlook
