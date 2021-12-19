@@ -12,16 +12,19 @@
 	Choose Office components: Access, OneDrive, Outlook, Word, Excel, PowerPoint, Teams
 
 	.EXAMPLE Download Office 2019 with the Word, Excel, PowerPoint components
-	DownloadOffice -Branch Standard2019Retail -Channel Current -Components Word, Excel, PowerPoint
+	DownloadOffice -Branch ProPlus2019Volume -Channel Current -Components Word, Excel, PowerPoint
 
 	.EXAMPLE Download Office 2021 with the Excel, Word components
-	DownloadOffice -Branch Standard2021Volume -Channel PerpetualVL2021 -Components Excel, Word
+	DownloadOffice -Branch ProPlus2021Volume -Channel PerpetualVL2021 -Components Excel, Word
 
 	.EXAMPLE Download Office 365 with the Excel, Word, PowerPoint components
 	DownloadOffice -Branch O365ProPlusRetail -Channel SemiAnnual -Components Excel, OneDrive, Outlook, PowerPoint, Teams, Word
 
 	.LINK
 	https://config.office.com/deploymentsettings
+
+	.LINK
+	https://docs.microsoft.com/en-us/deployoffice/vlactivation/gvlks
 #>
 function DownloadOffice
 {
@@ -29,7 +32,7 @@ function DownloadOffice
 	param
 	(
 		[Parameter(Mandatory = $true)]
-		[ValidateSet("Standard2019Retail", "Standard2021Volume", "O365ProPlusRetail")]
+		[ValidateSet("ProPlus2019Volume", "ProPlus2021Volume", "O365ProPlusRetail")]
 		[string]
 		$Branch,
 
@@ -54,13 +57,13 @@ function DownloadOffice
 
 	switch ($Branch)
 	{
-		Standard2019Retail
+		ProPlus2019Volume
 		{
-			($Config.Configuration.Add.Product | Where-Object -FilterScript {$_.ID -eq ""}).ID = "Standard2019Retail"
+			($Config.Configuration.Add.Product | Where-Object -FilterScript {$_.ID -eq ""}).ID = "ProPlus2019Volume"
 		}
-		Standard2021Volume
+		ProPlus2021Volume
 		{
-			($Config.Configuration.Add.Product | Where-Object -FilterScript {$_.ID -eq ""}).ID = "Standard2021Volume"
+			($Config.Configuration.Add.Product | Where-Object -FilterScript {$_.ID -eq ""}).ID = "ProPlus2021Volume"
 		}
 		O365ProPlusRetail
 		{
@@ -226,7 +229,7 @@ function DownloadOffice
 }
 
 # Download Offce. Firstly, download Office, then install it
-# DownloadOffice -Branch Standard2021Volume -Channel PerpetualVL2021 -Components Excel, Word
+DownloadOffice -Branch ProPlus2021Volume -Channel PerpetualVL2021 -Components Excel, Word
 
 # Install
 # Start-Process -FilePath "$PSScriptRoot\setup.exe" -ArgumentList "/configure `"$PSScriptRoot\Config.xml`"" -Wait
