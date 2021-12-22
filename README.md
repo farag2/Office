@@ -5,8 +5,8 @@
 # Download Office via ODT
 
 ```powershell
-  DownloadOffice -Branch Standard2019Retail -Channel Current -Components Word, Excel, PowerPoint
-  DownloadOffice -Branch Standard2021Volume -Channel PerpetualVL2021 -Components Excel, Word
+  DownloadOffice -Branch ProPlus2019Retail -Channel Current -Components Word, Excel, PowerPoint
+  DownloadOffice -Branch ProPlus2021Volume -Channel PerpetualVL2021 -Components Excel, Word
   DownloadOffice -Branch O365ProPlusRetail -Channel SemiAnnual -Components Excel, OneDrive, Outlook, PowerPoint, Teams, Word
 ```
 
