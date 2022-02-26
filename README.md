@@ -76,8 +76,5 @@
 * [Overview of update channels](https://docs.microsoft.com/ru-ru/DeployOffice/overview-of-update-channels-for-office-365-proplus)
 * [Office Deployment Tool](https://www.microsoft.com/en-us/download/details.aspx?id=49117)
 * [Deploy Office](https://docs.microsoft.com/en-us/deployoffice/reference-articles-for-deploying-office-365-proplus)
-* [Uninstall Office](https://support.microsoft.com/help/4027149)
-  * SaRA
-    * [zip](https://www.microsoft.com/en-us/download/100607)
-    * [exe](https://aka.ms/SaRASetup)
-  * [OffScrubC2R.vbs 2.15](https://github.com/farag2/Office/tree/master/Office_Uninstall)
+* [Uninstall Office (SaRA)](https://www.microsoft.com/en-us/download/100607)
+* [OffScrubC2R.vbs 2.15](https://github.com/farag2/Office/tree/master/Office_Uninstall)
