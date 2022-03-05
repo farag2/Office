@@ -19,6 +19,10 @@ New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Common -Name Overrid
 # Enable the dark theme
 New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Common -Name "UI Theme" -Value 3 -Type DWord -Force
 $GUID = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\AutoProvisioning" -Name UserId
+if (-not (Test-Path -Path H"HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\Roaming\Identities\$GUID\Settings\1186\{00000000-0000-0000-0000-000000000000}\PendingChanges"))
+{
+	New-Item -Path "HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\Roaming\Identities\$GUID\Settings\1186\{00000000-0000-0000-0000-000000000000}\PendingChanges" -Force
+}
 New-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\Roaming\Identities\$GUID\Settings\1186\{00000000-0000-0000-0000-000000000000}" -Name Data -Value ([byte[]](3, 0, 0, 0)) -Type Binary -Force
 New-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\Roaming\Identities\$GUID\Settings\1186\{00000000-0000-0000-0000-000000000000}\PendingChanges" -Name Data -Value ([byte[]](3, 0, 0, 0)) -Type Binary -Force
 #endregion Features
