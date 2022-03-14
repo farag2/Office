@@ -110,6 +110,9 @@ if (-not (Test-Path -Path HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\Toolbars\E
 	New-Item -Path HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\Toolbars\Excel -Force
 }
 New-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\Toolbars\Excel -Name QuickAccessToolbarStyle -PropertyType DWord -Value 16 -Force
+
+# Disable R1C1 reference style
+New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Excel\Options -Name Options -PropertyType DWord -Value 343 -Force
 #endregion Excel
 
 #region Word
