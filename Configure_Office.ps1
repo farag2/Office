@@ -27,7 +27,7 @@ New-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\Roaming\Iden
 New-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\Roaming\Identities\$GUID\Settings\1186\{00000000-0000-0000-0000-000000000000}\PendingChanges" -Name Data -Value ([byte[]](3, 0, 0, 0)) -Type Binary -Force
 
 # Remove the "Rich Text Document" context menu item
-Remove-ItemProperty -Path "Registry::HKEY_CLASSES_ROOT\.rtf" -Recurse -Force -ErrorAction Ignore
+Remove-Item -Path "Registry::HKEY_CLASSES_ROOT\.rtf" -Recurse -Force -ErrorAction Ignore
 #endregion Features
 
 #region Word
