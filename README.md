@@ -10,7 +10,7 @@
   DownloadOffice -Branch O365ProPlusRetail -Channel SemiAnnual -Components Excel, OneDrive, Outlook, PowerPoint, Teams, Word
 ```
 
-`Office.ps1` is a PowerShell script for configuring Office 2016/2019/365
+`Configure_Office.ps1` is a PowerShell script for configuring Office 2016/2019/365
 
 `Office 2019 & 2021` supports `Windows 10` & `Windows 11` only
 
