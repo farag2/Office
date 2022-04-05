@@ -16,15 +16,31 @@ New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Common\LinkedIn -Nam
 New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Common -Name OverridePointerMode -PropertyType DWord -Value 2 -Force
 New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Common -Name OverrideTabletMode -PropertyType DWord -Value 1 -Force
 
-# Enable the dark theme
+# Enable dark gray theme
 New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Common -Name "UI Theme" -Value 3 -Type DWord -Force
+
+# if $GUID exists, user logged in with a MS account
 $GUID = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\AutoProvisioning" -Name UserId
-if (-not (Test-Path -Path "HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\Roaming\Identities\$GUID\Settings\1186\{00000000-0000-0000-0000-000000000000}\PendingChanges"))
+if ($null -ne $GUID)
 {
-	New-Item -Path "HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\Roaming\Identities\$GUID\Settings\1186\{00000000-0000-0000-0000-000000000000}\PendingChanges" -Force
+    # Where all them data is stored
+    if (-not (Test-Path -Path "HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\Roaming\Identities\$GUID\Settings\1186\{00000000-0000-0000-0000-000000000000}\PendingChanges"))
+    {
+	    New-Item -Path "HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\Roaming\Identities\$GUID\Settings\1186\{00000000-0000-0000-0000-000000000000}\PendingChanges" -Force
+    }
+    New-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\Roaming\Identities\$GUID\Settings\1186\{00000000-0000-0000-0000-000000000000}" -Name Data -Value ([byte[]](3, 0, 0, 0)) -Type Binary -Force
+    New-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\Roaming\Identities\$GUID\Settings\1186\{00000000-0000-0000-0000-000000000000}\PendingChanges" -Name Data -Value ([byte[]](3, 0, 0, 0)) -Type Binary -Force
 }
-New-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\Roaming\Identities\$GUID\Settings\1186\{00000000-0000-0000-0000-000000000000}" -Name Data -Value ([byte[]](3, 0, 0, 0)) -Type Binary -Force
-New-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\Roaming\Identities\$GUID\Settings\1186\{00000000-0000-0000-0000-000000000000}\PendingChanges" -Name Data -Value ([byte[]](3, 0, 0, 0)) -Type Binary -Force
+else
+{
+    # Where all them data is stored
+    if (-not (Test-Path -Path "HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\Roaming\Identities\Anonymous\Settings\1186\{00000000-0000-0000-0000-000000000000}\PendingChanges"))
+    {
+	    New-Item -Path "HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\Roaming\Identities\Anonymous\Settings\1186\{00000000-0000-0000-0000-000000000000}\PendingChanges" -Force
+    }
+    New-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\Roaming\Identities\Anonymous\Settings\1186\{00000000-0000-0000-0000-000000000000}" -Name Data -Value ([byte[]](3, 0, 0, 0)) -Type Binary -Force
+    New-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\Roaming\Identities\Anonymous\Settings\1186\{00000000-0000-0000-0000-000000000000}\PendingChanges" -Name Data -Value ([byte[]](3, 0, 0, 0)) -Type Binary -Force
+}
 
 # Remove the "Rich Text Document" context menu item
 Remove-Item -Path "Registry::HKEY_CLASSES_ROOT\.rtf" -Recurse -Force -ErrorAction Ignore
