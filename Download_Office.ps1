@@ -12,7 +12,7 @@
 	Choose Office components: Access, OneDrive, Outlook, Word, Excel, PowerPoint, Teams
 
 	.EXAMPLE Download Office 2019 with the Word, Excel, PowerPoint components
-	DownloadOffice -Branch ProPlus2019Volume -Channel Current -Components Word, Excel, PowerPoint
+	DownloadOffice -Branch ProPlus2019Volume -Channel PerpetualVL2019 -Components Word, Excel, PowerPoint
 
 	.EXAMPLE Download Office 2021 with the Excel, Word components
 	DownloadOffice -Branch ProPlus2021Volume -Channel PerpetualVL2021 -Components Excel, Word
@@ -37,7 +37,7 @@ function DownloadOffice
 		$Branch,
 
 		[Parameter(Mandatory = $true)]
-		[ValidateSet("Current", "PerpetualVL2021", "SemiAnnual")]
+		[ValidateSet("PerpetualVL2019", "PerpetualVL2021", "SemiAnnual")]
 		[string]
 		$Channel,
 
@@ -87,9 +87,9 @@ function DownloadOffice
 
 	switch ($Channel)
 	{
-		Current
+		PerpetualVL2019
 		{
-			($Config.Configuration.Add | Where-Object -FilterScript {$_.Channel -eq ""}).Channel = "Current"
+			($Config.Configuration.Add | Where-Object -FilterScript {$_.Channel -eq ""}).Channel = "PerpetualVL2019"
 		}
 		PerpetualVL2021
 		{
@@ -243,7 +243,7 @@ function DownloadOffice
 }
 
 # Download Offce. Firstly, download Office, then install it
-DownloadOffice -Branch ProPlus2019Volume -Channel Current -Components Word, Excel, PowerPoint
+DownloadOffice -Branch ProPlus2019Volume -Channel PerpetualVL2019 -Components Word, Excel, PowerPoint
 
 if ($Script:RegionChanged)
 {
