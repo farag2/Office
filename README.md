@@ -5,7 +5,7 @@
 # Download Office via ODT
 
 ```powershell
-  DownloadOffice -Branch ProPlus2019Retail -Channel Current -Components Word, Excel, PowerPoint
+  DownloadOffice -Branch ProPlus2019Retail -Channel PerpetualVL2019 -Components Word, Excel, PowerPoint
   DownloadOffice -Branch ProPlus2021Volume -Channel PerpetualVL2021 -Components Excel, Word
   DownloadOffice -Branch O365ProPlusRetail -Channel SemiAnnual -Components Excel, OneDrive, Outlook, PowerPoint, Teams, Word
 ```
@@ -63,7 +63,7 @@
 
 ## Channels
 
-* Monthly Channel, Standart
+* Monthly Channel, Standard
   * [Excel, Outlook, PowerPoint, and Word](https://github.com/farag2/Office/blob/master/XML/Download/EOPW.xml)
   * [Excel, Outlook, and Word](https://github.com/farag2/Office/blob/master/XML/Download/EOW.xml)
   * [Excel, PowerPoint, and Word](https://github.com/farag2/Office/blob/master/XML/Download/EPW.xml)
