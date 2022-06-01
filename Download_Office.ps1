@@ -53,6 +53,20 @@ function DownloadOffice
 		exit
 	}
 
+
+	# Microsoft blocks Russian and Belarusian regions for Office downloading
+	# https://docs.microsoft.com/en-us/windows/win32/intl/table-of-geographical-locations
+	# https://en.wikipedia.org/wiki/2022_Russian_invasion_of_Ukraine
+	if (((Get-WinHomeLocation).GeoId -eq "203") -or ((Get-WinHomeLocation).GeoId -eq "29"))
+	{
+		# Set to Ukraine
+		$Script:Region = (Get-WinHomeLocation).GeoId
+		Set-WinHomeLocation -GeoId 241
+		Write-Warning -Message "Region changed to Ukrainian one"
+
+		$Script:RegionChanged = $true
+	}
+
 	[xml]$Config = Get-Content -Path "$PSScriptRoot\Default.xml" -Encoding Default -Force
 
 	switch ($Branch)
@@ -229,7 +243,14 @@ function DownloadOffice
 }
 
 # Download Offce. Firstly, download Office, then install it
-DownloadOffice -Branch ProPlus2021Volume -Channel PerpetualVL2021 -Components Excel, Word
+DownloadOffice -Branch ProPlus2019Volume -Channel Current -Components Word, Excel, PowerPoint
+
+if ($Script:RegionChanged)
+{
+	# Set to original region ID
+	Set-WinHomeLocation -GeoId $Script:Region
+	Write-Warning -Message "Region changed to original one"
+}
 
 # Install
 # Start-Process -FilePath "$PSScriptRoot\setup.exe" -ArgumentList "/configure `"$PSScriptRoot\Config.xml`"" -Wait
