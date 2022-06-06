@@ -32,12 +32,12 @@ function DownloadOffice
 	param
 	(
 		[Parameter(Mandatory = $true)]
-		[ValidateSet("ProPlus2019Volume", "ProPlus2021Volume", "O365ProPlusRetail")]
+		[ValidateSet("ProPlus2019Retail", "ProPlus2021Volume", "O365ProPlusRetail")]
 		[string]
 		$Branch,
 
 		[Parameter(Mandatory = $true)]
-		[ValidateSet("PerpetualVL2019", "PerpetualVL2021", "SemiAnnual")]
+		[ValidateSet("Current", "PerpetualVL2021", "SemiAnnual")]
 		[string]
 		$Channel,
 
@@ -71,9 +71,9 @@ function DownloadOffice
 
 	switch ($Branch)
 	{
-		ProPlus2019Volume
+		ProPlus2019Retail
 		{
-			($Config.Configuration.Add.Product | Where-Object -FilterScript {$_.ID -eq ""}).ID = "ProPlus2019Volume"
+			($Config.Configuration.Add.Product | Where-Object -FilterScript {$_.ID -eq ""}).ID = "ProPlus2019Retail"
 		}
 		ProPlus2021Volume
 		{
@@ -87,9 +87,9 @@ function DownloadOffice
 
 	switch ($Channel)
 	{
-		PerpetualVL2019
+		Current
 		{
-			($Config.Configuration.Add | Where-Object -FilterScript {$_.Channel -eq ""}).Channel = "PerpetualVL2019"
+			($Config.Configuration.Add | Where-Object -FilterScript {$_.Channel -eq ""}).Channel = "Current"
 		}
 		PerpetualVL2021
 		{
@@ -243,7 +243,7 @@ function DownloadOffice
 }
 
 # Download Offce. Firstly, download Office, then install it
-DownloadOffice -Branch ProPlus2019Volume -Channel PerpetualVL2019 -Components Word, Excel, PowerPoint
+DownloadOffice -Branch ProPlus2019Retail -Channel Current -Components Word, Excel, PowerPoint, Access
 
 if ($Script:RegionChanged)
 {
