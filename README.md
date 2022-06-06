@@ -5,7 +5,7 @@
 # Download Office via ODT
 
 ```powershell
-  DownloadOffice -Branch ProPlus2019Retail -Channel PerpetualVL2019 -Components Word, Excel, PowerPoint
+  DownloadOffice -Branch ProPlus2019Retail -Channel Current -Components Word, Excel, PowerPoint
   DownloadOffice -Branch ProPlus2021Volume -Channel PerpetualVL2021 -Components Excel, Word
   DownloadOffice -Branch O365ProPlusRetail -Channel SemiAnnual -Components Excel, OneDrive, Outlook, PowerPoint, Teams, Word
 ```
@@ -73,7 +73,7 @@
 ## Links
 
 * [Configure Office](https://config.office.com/deploymentsettings)
-* [Overview of update channels](https://docs.microsoft.com/ru-ru/DeployOffice/overview-of-update-channels-for-office-365-proplus)
+* [Overview of update channels](https://docs.microsoft.com/en-us/DeployOffice/overview-of-update-channels-for-office-365-proplus)
 * [Office Deployment Tool](https://www.microsoft.com/en-us/download/details.aspx?id=49117)
 * [Deploy Office](https://docs.microsoft.com/en-us/deployoffice/reference-articles-for-deploying-office-365-proplus)
 * [Uninstall Office (SaRA)](https://www.microsoft.com/en-us/download/100607)
