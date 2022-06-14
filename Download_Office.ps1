@@ -12,7 +12,7 @@
 	Choose Office components: Access, OneDrive, Outlook, Word, Excel, PowerPoint, Teams
 
 	.EXAMPLE Download Office 2019 with the Word, Excel, PowerPoint components
-	DownloadOffice -Branch ProPlus2019Volume -Channel PerpetualVL2019 -Components Word, Excel, PowerPoint
+	DownloadOffice -Branch ProPlus2019Retail -Channel Current -Components Word, Excel, PowerPoint
 
 	.EXAMPLE Download Office 2021 with the Excel, Word components
 	DownloadOffice -Branch ProPlus2021Volume -Channel PerpetualVL2021 -Components Excel, Word
