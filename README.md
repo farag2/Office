@@ -48,28 +48,6 @@
   * Enable the "Developer" tab
 </details>
 
-<details>
-  <summary>Old</summary>
-
-## Download and customize Office 2019
-
-* E — Excel;
-* O — Outlook;
-* P — PowerPoint;
-* W — Word.
-
-* [Download](https://github.com/farag2/Office/releases) the archive from the release page and run `EOPW.cmd` or `EOPW.ps1` from the `Download` folder to download the whole Office 2019 package. It will be downloaded into the root folder (`Office`)
-* After downloading run one of the install script **not as Administrator** from the `Install` folder
-
-## Channels
-
-* Monthly Channel, Standard
-  * [Excel, Outlook, PowerPoint, and Word](https://github.com/farag2/Office/blob/master/XML/Download/EOPW.xml)
-  * [Excel, Outlook, and Word](https://github.com/farag2/Office/blob/master/XML/Download/EOW.xml)
-  * [Excel, PowerPoint, and Word](https://github.com/farag2/Office/blob/master/XML/Download/EPW.xml)
-  * [Excel, Word](https://github.com/farag2/Office/blob/master/XML/Download/EW.xml)
-</details>
-
 ## Links
 
 * [Configure Office](https://config.office.com/deploymentsettings)
