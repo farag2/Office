@@ -62,7 +62,7 @@ function DownloadOffice
 		# Set to Ukraine
 		$Script:Region = (Get-WinHomeLocation).GeoId
 		Set-WinHomeLocation -GeoId 241
-		Write-Warning -Message "Region changed to Ukrainian one"
+		Write-Warning -Message "Region changed to Ukrainian"
 
 		$Script:RegionChanged = $true
 	}
@@ -124,6 +124,7 @@ function DownloadOffice
 					{
 						Write-Information -MessageData "" -InformationAction Continue
 						Write-Verbose -Message "OneDrive Installing" -Verbose
+
 						Start-Process -FilePath $env:SystemRoot\SysWOW64\OneDriveSetup.exe
 					}
 					else
@@ -207,43 +208,51 @@ function DownloadOffice
 
 	$Config.Save("$PSScriptRoot\Config.xml")
 
+	# It is needed to remove these keys not to bypass Russian and Belarusian region blocks
+	Remove-Item -Path HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\Experiment -Recurse -Force -ErrorAction Ignore
+	Remove-Item -Path HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\ExperimentConfigs -Recurse -Force -ErrorAction Ignore
+	Remove-Item -Path HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\ExperimentEcs -Recurse -Force -ErrorAction Ignore
+
 	# Download Office Deployment Tool
 	# https://www.microsoft.com/en-us/download/details.aspx?id=49117
 	[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
-	$Parameters = @{
-		Uri              = "https://www.microsoft.com/en-us/download/confirmation.aspx?id=49117"
-		UseBasicParsing  = $true
+	if (-not (Test-Path -Path "$PSScriptRoot\setup.exe"))
+	{
+		$Parameters = @{
+			Uri              = "https://www.microsoft.com/en-us/download/confirmation.aspx?id=49117"
+			UseBasicParsing  = $true
+		}
+		$ODTURL = ((Invoke-WebRequest @Parameters).Links | Where-Object {$_.outerHTML -match "click here to download manually"}).href
+		$Parameters = @{
+			Uri             = $ODTURL
+			OutFile         = "$PSScriptRoot\officedeploymenttool.exe"
+			UseBasicParsing = $true
+			Verbose         = $true
+		}
+		Invoke-WebRequest @Parameters
+
+		# Expand officedeploymenttool.exe
+		Start-Process "$PSScriptRoot\officedeploymenttool.exe" -ArgumentList "/quiet /extract:`"$PSScriptRoot\officedeploymenttool`"" -Wait
+
+		$Parameters = @{
+			Path        = "$PSScriptRoot\officedeploymenttool\setup.exe"
+			Destination = "$PSScriptRoot"
+			Force       = $true
+		}
+		Move-Item @Parameters
+
+		Start-Sleep -Seconds 1
+
+		Remove-item -Path "$PSScriptRoot\officedeploymenttool", "$PSScriptRoot\officedeploymenttool.exe" -Recurse -Force
 	}
-	$ODTURL = ((Invoke-WebRequest @Parameters).Links | Where-Object {$_.outerHTML -match "click here to download manually"}).href
-	$Parameters = @{
-		Uri             = $ODTURL
-		OutFile         = "$PSScriptRoot\officedeploymenttool.exe"
-		UseBasicParsing = $true
-		Verbose         = $true
-	}
-	Invoke-WebRequest @Parameters
-
-	# Expand officedeploymenttool.exe
-	Start-Process "$PSScriptRoot\officedeploymenttool.exe" -ArgumentList "/quiet /extract:`"$PSScriptRoot\officedeploymenttool`"" -Wait
-
-	$Parameters = @{
-		Path        = "$PSScriptRoot\officedeploymenttool\setup.exe"
-		Destination = "$PSScriptRoot"
-		Force       = $true
-	}
-	Move-Item @Parameters
-
-	Start-Sleep -Seconds 1
-
-	Remove-item -Path "$PSScriptRoot\officedeploymenttool", "$PSScriptRoot\officedeploymenttool.exe" -Recurse -Force
 
 	# Start downloading to the Office folder
 	Start-Process -FilePath "$PSScriptRoot\setup.exe" -ArgumentList "/download `"$PSScriptRoot\Config.xml`"" -Wait
 }
 
 # Download Offce. Firstly, download Office, then install it
-DownloadOffice -Branch ProPlus2019Retail -Channel Current -Components Word, Excel, PowerPoint, Access
+DownloadOffice -Branch ProPlus2019Retail -Channel Current -Components Word
 
 if ($Script:RegionChanged)
 {
