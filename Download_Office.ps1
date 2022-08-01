@@ -53,20 +53,6 @@ function DownloadOffice
 		exit
 	}
 
-
-	# Microsoft blocks Russian and Belarusian regions for Office downloading
-	# https://docs.microsoft.com/en-us/windows/win32/intl/table-of-geographical-locations
-	# https://en.wikipedia.org/wiki/2022_Russian_invasion_of_Ukraine
-	if (((Get-WinHomeLocation).GeoId -eq "203") -or ((Get-WinHomeLocation).GeoId -eq "29"))
-	{
-		# Set to Ukraine
-		$Script:Region = (Get-WinHomeLocation).GeoId
-		Set-WinHomeLocation -GeoId 241
-		Write-Warning -Message "Region changed to Ukrainian"
-
-		$Script:RegionChanged = $true
-	}
-
 	[xml]$Config = Get-Content -Path "$PSScriptRoot\Default.xml" -Encoding Default -Force
 
 	switch ($Branch)
@@ -207,6 +193,19 @@ function DownloadOffice
 	}
 
 	$Config.Save("$PSScriptRoot\Config.xml")
+
+	# Microsoft blocks Russian and Belarusian regions for Office downloading
+	# https://docs.microsoft.com/en-us/windows/win32/intl/table-of-geographical-locations
+	# https://en.wikipedia.org/wiki/2022_Russian_invasion_of_Ukraine
+	if (((Get-WinHomeLocation).GeoId -eq "203") -or ((Get-WinHomeLocation).GeoId -eq "29"))
+	{
+		# Set to Ukraine
+		$Script:Region = (Get-WinHomeLocation).GeoId
+		Set-WinHomeLocation -GeoId 241
+		Write-Warning -Message "Region changed to Ukrainian"
+
+		$Script:RegionChanged = $true
+	}
 
 	# It is needed to remove these keys to bypass Russian and Belarusian region blocks
 	Remove-Item -Path HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\Experiment -Recurse -Force -ErrorAction Ignore
