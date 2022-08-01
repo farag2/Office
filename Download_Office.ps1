@@ -208,7 +208,7 @@ function DownloadOffice
 
 	$Config.Save("$PSScriptRoot\Config.xml")
 
-	# It is needed to remove these keys not to bypass Russian and Belarusian region blocks
+	# It is needed to remove these keys to bypass Russian and Belarusian region blocks
 	Remove-Item -Path HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\Experiment -Recurse -Force -ErrorAction Ignore
 	Remove-Item -Path HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\ExperimentConfigs -Recurse -Force -ErrorAction Ignore
 	Remove-Item -Path HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\ExperimentEcs -Recurse -Force -ErrorAction Ignore
