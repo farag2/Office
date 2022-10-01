@@ -37,7 +37,7 @@ function DownloadOffice
 		$Branch,
 
 		[Parameter(Mandatory = $true)]
-		[ValidateSet("Current", "PerpetualVL2021", "SemiAnnual")]
+		[ValidateSet("BetaChannel", "Current", "PerpetualVL2021", "SemiAnnual")]
 		[string]
 		$Channel,
 
@@ -73,6 +73,10 @@ function DownloadOffice
 
 	switch ($Channel)
 	{
+		BetaChannel
+		{
+			($Config.Configuration.Add | Where-Object -FilterScript {$_.Channel -eq ""}).Channel = "BetaChannel"
+		}
 		Current
 		{
 			($Config.Configuration.Add | Where-Object -FilterScript {$_.Channel -eq ""}).Channel = "Current"
@@ -251,7 +255,7 @@ function DownloadOffice
 }
 
 # Download Offce. Firstly, download Office, then install it
-DownloadOffice -Branch ProPlus2019Retail -Channel Current -Components Word
+DownloadOffice -Branch ProPlus2019Retail -Channel Current -Components Word, Excel, PowerPoint
 
 if ($Script:RegionChanged)
 {
