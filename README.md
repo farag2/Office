@@ -1,30 +1,37 @@
 [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Q5Q51QUJC)
 
-## Overview
+## How-to
 
-# Download Office via ODT
+* Choose which Offce to download by editing the `DownloadOffice` arguments in the of the file
 
-```powershell
-  DownloadOffice -Branch ProPlus2019Retail -Channel Current -Components Word, Excel, PowerPoint
-  DownloadOffice -Branch ProPlus2021Volume -Channel PerpetualVL2021 -Components Excel, Word
-  DownloadOffice -Branch O365ProPlusRetail -Channel SemiAnnual -Components Excel, OneDrive, Outlook, PowerPoint, Teams, Word
-```
+  ```powershell
+    DownloadOffice -Branch ProPlus2019Retail -Channel Current -Components Word, Excel, PowerPoint
+    DownloadOffice -Branch ProPlus2021Volume -Channel PerpetualVL2021 -Components Excel, Word
+    DownloadOffice -Branch O365ProPlusRetail -Channel BetaChannel -Components Excel, OneDrive, Outlook, PowerPoint, Teams, Word
+  ```
 
-`Configure_Office.ps1` is a PowerShell script for configuring Office 2016/2019/365
+* You may uncomment this string in the file to install Office automatically after it's downloaded (the script downloads Office by default only)
 
-`Office 2019 & 2021` supports `Windows 10` & `Windows 11` only
+  ```powershell
+  Start-Process -FilePath "$PSScriptRoot\setup.exe" -ArgumentList "/configure `"$PSScriptRoot\Config.xml`"" -Wait
+  ```
+
+## Addendum
+
+`Configure_Office.ps1` is a script for configuring Office 2016/2019/365
+`Office 2019, 2021, & 365` support `Windows 10` & `Windows 11` only
 
 ## Features
 
 <details>
   <summary>List</summary>
 
- * General
-  * Remove diagnostics tracking scheduled tasks
-  * Do not send additional diagnostic and usage data to Microsoft
-  * Disable LinkedIn features in Office applications
-  * Turn off the cloud features
-  * Turn on Touch/Mouse Mode
+* General
+* Remove diagnostics tracking scheduled tasks
+* Do not send additional diagnostic and usage data to Microsoft
+* Disable LinkedIn features in Office applications
+* Turn off the cloud features
+* Turn on Touch/Mouse Mode
 
 * Word
   * Do not show the Start screen when application starts
@@ -46,6 +53,7 @@
   * Save AutoRecover information every 3 minutes
   * Enable the "Draw" tab
   * Enable the "Developer" tab
+
 </details>
 
 ## Links
