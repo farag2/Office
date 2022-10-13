@@ -59,7 +59,9 @@
 ## Links
 
 * [Configure Office](https://config.office.com/deploymentsettings)
-* [Overview of update channels](https://learn.microsoft.com/en-us/deployoffice/overview-update-channels)
+* Overview of update channels
+  * <https://learn.microsoft.com/en-us/deployoffice/overview-update-channels>
+  * <https://learn.microsoft.com/en-us/microsoft-365/troubleshoot/installation/product-ids-supported-office-deployment-click-to-run>
 * [Office Deployment Tool](https://www.microsoft.com/en-us/download/details.aspx?id=49117)
 * [Deploy Office](https://learn.microsoft.com/en-us/deployoffice/deployment-guide-microsoft-365-apps)
 * [Uninstall Office (SaRA)](https://www.microsoft.com/en-us/download/100607)
