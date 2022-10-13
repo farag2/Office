@@ -263,6 +263,3 @@ if ($Script:RegionChanged)
 	Set-WinHomeLocation -GeoId $Script:Region
 	Write-Warning -Message "Region changed to original one"
 }
-
-# Install
-# Start-Process -FilePath "$PSScriptRoot\setup.exe" -ArgumentList "/configure `"$PSScriptRoot\Config.xml`"" -Wait
