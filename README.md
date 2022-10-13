@@ -59,9 +59,9 @@
 ## Links
 
 * [Configure Office](https://config.office.com/deploymentsettings)
-* [Overview of update channels](https://docs.microsoft.com/en-us/DeployOffice/overview-of-update-channels-for-office-365-proplus)
+* [Overview of update channels](https://learn.microsoft.com/en-us/deployoffice/overview-update-channels)
 * [Office Deployment Tool](https://www.microsoft.com/en-us/download/details.aspx?id=49117)
-* [Deploy Office](https://docs.microsoft.com/en-us/deployoffice/reference-articles-for-deploying-office-365-proplus)
+* [Deploy Office](https://learn.microsoft.com/en-us/deployoffice/deployment-guide-microsoft-365-apps)
 * [Uninstall Office (SaRA)](https://www.microsoft.com/en-us/download/100607)
 * [OffScrubC2R.vbs 2.19](https://github.com/farag2/Office/tree/master/Office_Uninstall)
 * [Office Tool Plus](https://github.com/YerongAI/Office-Tool)
