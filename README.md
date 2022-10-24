@@ -2,6 +2,12 @@
 
 ## How-to
 
+* Change execustion policy
+
+  ```powershell
+    Set-ExecutionPolicy -ExecutionPolicy Bypass -Force
+  ```
+
 * Choose which Offce to download by editing the `DownloadOffice` arguments in the of the file
 
   ```powershell
