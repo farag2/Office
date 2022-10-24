@@ -24,7 +24,6 @@
 
 ## Addendum
 
-`Configure_Office.ps1` is a script for configuring Office 2016/2019/365
 `Office 2019, 2021, & 365` support `Windows 10` & `Windows 11` only
 
 ## Features
