@@ -8,7 +8,7 @@
     Set-ExecutionPolicy -ExecutionPolicy Bypass -Force
   ```
 
-* Choose which Offce to download by editing the `DownloadOffice` arguments in the of the file
+* Choose which Offce to download by editing the `DownloadOffice` arguments in the file
 
   ```powershell
     DownloadOffice -Branch ProPlus2019Retail -Channel Current -Components Word, Excel, PowerPoint
