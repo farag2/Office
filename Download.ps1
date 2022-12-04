@@ -20,11 +20,17 @@
 	.EXAMPLE Download Office 365 with the Excel, Word, PowerPoint components
 	DownloadOffice -Branch O365ProPlusRetail -Channel SemiAnnual -Components Excel, OneDrive, Outlook, PowerPoint, Teams, Word
 
+	.EXAMPLE Download Office 365 with the Excel, Word components using Beta channel
+	DownloadOffice -Branch O365ProPlusRetail -Channel BetaChannel -Components Excel, Word
+
 	.LINK
 	https://config.office.com/deploymentsettings
 
 	.LINK
 	https://docs.microsoft.com/en-us/deployoffice/vlactivation/gvlks
+
+	.NOTES
+	Run as non-admin
 #>
 function DownloadOffice
 {
@@ -143,7 +149,7 @@ function DownloadOffice
 								# Parse XML to get the URL
 								# https://go.microsoft.com/fwlink/p/?LinkID=844652
 								$Parameters = @{
-									Uri             = "https://g.live.com/1rewlive5skydrive/OneDriveProduction"
+									Uri             = "https://g.live.com/1rewlive5skydrive/OneDriveProductionV2"
 									UseBasicParsing = $true
 									Verbose         = $true
 								}
