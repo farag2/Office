@@ -8,7 +8,7 @@
     Set-ExecutionPolicy -ExecutionPolicy Bypass -Force
   ```
 
-* Choose which Offce to download by editing the `DownloadOffice` arguments in the file
+* Choose which Office to download by editing the `DownloadOffice` arguments in the file and run `Download.ps1`
 
   ```powershell
     DownloadOffice -Branch ProPlus2019Retail -Channel Current -Components Word, Excel, PowerPoint
@@ -16,11 +16,7 @@
     DownloadOffice -Branch O365ProPlusRetail -Channel BetaChannel -Components Excel, OneDrive, Outlook, PowerPoint, Teams, Word
   ```
 
-* You may uncomment this string in the file to install Office automatically after it's downloaded (the script downloads Office by default only)
-
-  ```powershell
-  Start-Process -FilePath "$PSScriptRoot\setup.exe" -ArgumentList "/configure `"$PSScriptRoot\Config.xml`"" -Wait
-  ```
+* Run `Install.ps1` to install Office you downloaded
 
 ## Addendum
 
