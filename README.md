@@ -1,8 +1,10 @@
 [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Q5Q51QUJC)
 
+## Download Microsoft 365 (Office 365) via ODT with PowerShell 
+
 ## How-to
 
-* Change execustion policy
+* Change execution policy
 
   ```powershell
   Set-ExecutionPolicy -ExecutionPolicy Bypass -Force
