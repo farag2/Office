@@ -18,7 +18,7 @@
   .\Download.ps1-Branch O365ProPlusRetail -Channel BetaChannel -Components Excel, OneDrive, Outlook, PowerPoint, Teams, Word
   ```
 
-* Run `Install.ps1` to install Office you downloaded
+* Run `Install.ps1` from context menu to install Office you downloaded (no need to run PowerShell as admin, because `setup.exe` will ask to elevate the installatio process automatically)
 
 ## Addendum
 
