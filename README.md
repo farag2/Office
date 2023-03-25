@@ -8,12 +8,12 @@
   Set-ExecutionPolicy -ExecutionPolicy Bypass -Force
   ```
 
-* Choose which Office to download by editing the `DownloadOffice` arguments in the file and run `Download.ps1`
+* Choose which Office to download
 
   ```powershell
-  DownloadOffice -Branch ProPlus2019Retail -Channel Current -Components Word, Excel, PowerPoint
-  DownloadOffice -Branch ProPlus2021Volume -Channel PerpetualVL2021 -Components Excel, Word
-  DownloadOffice -Branch O365ProPlusRetail -Channel BetaChannel -Components Excel, OneDrive, Outlook, PowerPoint, Teams, Word
+  .\Download.ps1 -Branch ProPlus2019Retail -Channel Current -Components Word, Excel, PowerPoint
+  .\Download.ps1 -Branch ProPlus2021Volume -Channel PerpetualVL2021 -Components Excel, Word
+  .\Download.ps1-Branch O365ProPlusRetail -Channel BetaChannel -Components Excel, OneDrive, Outlook, PowerPoint, Teams, Word
   ```
 
 * Run `Install.ps1` to install Office you downloaded
