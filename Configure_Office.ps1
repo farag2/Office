@@ -19,7 +19,7 @@ New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Common -Name Overrid
 # Enable dark gray theme
 New-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Common -Name "UI Theme" -Value 3 -Type DWord -Force
 
-# if $GUID exists, user logged in with a MS account
+# if $GUID exists, user logged in with an MS account
 if (Test-Path -Path HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\AutoProvisioning)
 {
 	if (Get-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\AutoProvisioning -Name UserId -ErrorAction Ignore)
