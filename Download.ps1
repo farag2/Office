@@ -119,7 +119,7 @@ foreach ($Component in $Components)
 					Write-Information -MessageData "" -InformationAction Continue
 					Write-Verbose -Message "OneDrive Installing" -Verbose
 
-						Start-Process -FilePath $env:SystemRoot\SysWOW64\OneDriveSetup.exe
+					Start-Process -FilePath $env:SystemRoot\SysWOW64\OneDriveSetup.exe
 				}
 				else
 				{
