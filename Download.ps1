@@ -57,6 +57,15 @@ if (-not (Test-Path -Path "$PSScriptRoot\Default.xml"))
 	exit
 }
 
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
+if ($Host.Version.Major -eq 5)
+{
+	# Progress bar can significantly impact cmdlet performance
+	# https://github.com/PowerShell/PowerShell/issues/2138
+	$Script:ProgressPreference = "SilentlyContinue"
+}
+
 [xml]$Config = Get-Content -Path "$PSScriptRoot\Default.xml" -Encoding Default -Force
 
 switch ($Branch)
@@ -114,64 +123,66 @@ foreach ($Component in $Components)
 			$OneDrive = Get-Package -Name "Microsoft OneDrive" -ProviderName Programs -Force -ErrorAction Ignore
 			if (-not $OneDrive)
 			{
-				if (Test-Path -Path $env:SystemRoot\SysWOW64\OneDriveSetup.exe)
+				switch ((Get-CimInstance -ClassName Win32_OperatingSystem).Caption)
 				{
-					Write-Information -MessageData "" -InformationAction Continue
-					Write-Verbose -Message "OneDrive Installing" -Verbose
-
-					Start-Process -FilePath $env:SystemRoot\SysWOW64\OneDriveSetup.exe
-				}
-				else
-				{
-					try
+					{$_ -match 10}
 					{
-						# Downloading the latest OneDrive installer x64
-						$Parameters = @{
-							Uri              = "https://www.google.com"
-							Method           = "Head"
-							DisableKeepAlive = $true
-							UseBasicParsing  = $true
-						}
-						if (-not (Invoke-WebRequest @Parameters).StatusDescription)
-						{
-							return
-						}
-
-						if ((Invoke-WebRequest -Uri https://www.google.com -UseBasicParsing -DisableKeepAlive -Method Head).StatusDescription)
+						if (Test-Path -Path $env:SystemRoot\SysWOW64\OneDriveSetup.exe)
 						{
 							Write-Information -MessageData "" -InformationAction Continue
-							Write-Verbose -Message "OneDrive Downloading" -Verbose
+							Write-Verbose -Message "OneDrive Installing" -Verbose
 
-							[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-
-							# Parse XML to get the URL
-							# https://go.microsoft.com/fwlink/p/?LinkID=844652
-							$Parameters = @{
-								Uri             = "https://g.live.com/1rewlive5skydrive/OneDriveProductionV2"
-								UseBasicParsing = $true
-								Verbose         = $true
-							}
-							$Content = Invoke-RestMethod @Parameters
-
-							# Remove invalid chars
-							[xml]$OneDriveXML = $Content -replace "ï»¿", ""
-
-							$OneDriveURL = ($OneDriveXML).root.update.amd64binary.url
-							$DownloadsFolder = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" -Name "{374DE290-123F-4565-9164-39C4925E467B}"
-							$Parameters = @{
-								Uri     = $OneDriveURL
-								OutFile = "$DownloadsFolder\OneDriveSetup.exe"
-								Verbose = $true
-							}
-							Invoke-WebRequest @Parameters
-
-							Start-Process -FilePath "$DownloadsFolder\OneDriveSetup.exe"
+							Start-Process -FilePath $env:SystemRoot\SysWOW64\OneDriveSetup.exe
+						}
+						else
+						{
+							$Script:OneDriveInstalled = $false
 						}
 					}
-					catch [System.Net.WebException]
+					{$_ -match 11}
 					{
-						Write-Warning -Message "No Internet Connection"
+						if (Test-Path -Path $env:SystemRoot\System32\OneDriveSetup.exe)
+						{
+							Write-Information -MessageData "" -InformationAction Continue
+							Write-Verbose -Message "OneDrive Installing" -Verbose
+
+							Start-Process -FilePath $env:SystemRoot\SysWOW64\OneDriveSetup.exe
+						}
+						else
+						{
+							$Script:OneDriveInstalled = $false
+						}
 					}
+				}
+
+				if (-not $Script:OneDriveInstalled)
+				{
+					Write-Information -MessageData "" -InformationAction Continue
+					Write-Verbose -Message "OneDrive Downloading" -Verbose
+
+					# Parse XML to get the URL
+					# https://go.microsoft.com/fwlink/p/?LinkID=844652
+					$Parameters = @{
+						Uri             = "https://g.live.com/1rewlive5skydrive/OneDriveProductionV2"
+						UseBasicParsing = $true
+						Verbose         = $true
+					}
+					$Content = Invoke-RestMethod @Parameters
+
+					# Remove invalid chars
+					[xml]$OneDriveXML = $Content -replace "ï»¿", ""
+
+					$OneDriveURL = ($OneDriveXML).root.update.amd64binary.url | Select-Object -Index 1
+					$DownloadsFolder = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" -Name "{374DE290-123F-4565-9164-39C4925E467B}"
+					$Parameters = @{
+						Uri     = $OneDriveURL
+						OutFile = "$DownloadsFolder\OneDriveSetup.exe"
+						Verbose = $true
+					}
+					Invoke-WebRequest @Parameters
+
+					Start-Process -FilePath "$DownloadsFolder\OneDriveSetup.exe" -Wait
+					Remove-Item -Path "$DownloadsFolder\OneDriveSetup.exe" -Force
 				}
 
 				Get-ScheduledTask -TaskName "Onedrive* Update*" | Enable-ScheduledTask | Start-ScheduledTask
@@ -222,8 +233,6 @@ Remove-Item -Path HKCU:\SOFTWARE\Microsoft\Office\16.0\Common\ExperimentEcs -Rec
 
 # Download Office Deployment Tool
 # https://www.microsoft.com/en-us/download/details.aspx?id=49117
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-
 if (-not (Test-Path -Path "$PSScriptRoot\setup.exe"))
 {
 	$Parameters = @{
