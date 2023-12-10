@@ -127,7 +127,7 @@ foreach ($Component in $Components)
 				{
 					{$_ -match 10}
 					{
-						if (Test-Path -Path $env:SystemRoot\SysWOW64\OneDriveSetup1.exe)
+						if (Test-Path -Path $env:SystemRoot\SysWOW64\OneDriveSetup.exe)
 						{
 							Write-Information -MessageData "" -InformationAction Continue
 							Write-Verbose -Message "OneDrive Installing" -Verbose
@@ -141,7 +141,7 @@ foreach ($Component in $Components)
 					}
 					{$_ -match 11}
 					{
-						if (Test-Path -Path $env:SystemRoot\System32\OneDriveSetup1.exe)
+						if (Test-Path -Path $env:SystemRoot\System32\OneDriveSetup.exe)
 						{
 							Write-Information -MessageData "" -InformationAction Continue
 							Write-Verbose -Message "OneDrive Installing" -Verbose
@@ -181,8 +181,8 @@ foreach ($Component in $Components)
 					}
 					Invoke-WebRequest @Parameters
 
-					#Start-Process -FilePath "$DownloadsFolder\OneDriveSetup.exe" -Wait
-					#Remove-Item -Path "$DownloadsFolder\OneDriveSetup.exe" -Force
+					Start-Process -FilePath "$DownloadsFolder\OneDriveSetup.exe" -Wait
+					Remove-Item -Path "$DownloadsFolder\OneDriveSetup.exe" -Force
 				}
 
 				Get-ScheduledTask -TaskName "Onedrive* Update*" | Enable-ScheduledTask | Start-ScheduledTask
