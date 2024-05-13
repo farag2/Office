@@ -1,4 +1,4 @@
-﻿<#
+<#
 	.SYNOPSIS
 	Download Office 2019, 2021, and 365
 
@@ -175,9 +175,10 @@ foreach ($Component in $Components)
 					$OneDriveURL = ($OneDriveXML).root.update.amd64binary.url | Select-Object -Index 1
 					$DownloadsFolder = Get-ItemPropertyValue -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" -Name "{374DE290-123F-4565-9164-39C4925E467B}"
 					$Parameters = @{
-						Uri     = $OneDriveURL
-						OutFile = "$DownloadsFolder\OneDriveSetup.exe"
-						Verbose = $true
+						Uri             = $OneDriveURL
+						OutFile         = "$DownloadsFolder\OneDriveSetup.exe"
+						UseBasicParsing = $true
+						Verbose         = $true
 					}
 					Invoke-WebRequest @Parameters
 
@@ -205,8 +206,17 @@ foreach ($Component in $Components)
 		}
 		Teams
 		{
-			$Node = $Config.SelectSingleNode("//ExcludeApp[@ID='Teams']")
-			$Node.ParentNode.RemoveChild($Node)
+			Write-Information -MessageData "" -InformationAction Continue
+			Write-Verbose -Message "Teams Downloading" -Verbose
+
+			# https://www.microsoft.com/microsoft-teams/download-app
+			$Parameters = @{
+				Uri             = "https://statics.teams.cdn.office.net/production-windows-x64/enterprise/webview2/lkg/MSTeams-x64.msix"
+				OutFile         = "$DownloadsFolder\MSTeams-x64.msix"
+				UseBasicParsing = $true
+				Verbose         = $true
+			}
+			Invoke-RestMethod @Parameters
 		}
 	}
 }
