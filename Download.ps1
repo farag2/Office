@@ -1,12 +1,12 @@
 <#
 	.SYNOPSIS
-	Download Office 2019, 2021, and 365
+	Download Office 2019, 2021, 2024, and 365
 
 	.PARAMETER Branch
-	Choose Office branch: 2019, 2021, and 365
+	Choose Office branch: 2019, 2021, 2024, and 365
 
 	.PARAMETER Channel
-	Choose Office channel: 2019, 2021, and 365
+	Choose Office channel: 2019, 2021, 2024, and 365
 
 	.PARAMETER Components
 	Choose Office components: Access, OneDrive, Outlook, Word, Excel, PowerPoint, Teams
@@ -17,11 +17,11 @@
 	.EXAMPLE Download Office 2021 with the Excel, Word components
 	Download.ps1 -Branch ProPlus2021Volume -Channel PerpetualVL2021 -Components Excel, Word
 
-	.EXAMPLE Download Office 365 with the Excel, Word, PowerPoint components
-	Download.ps1 -Branch O365ProPlusRetail -Channel SemiAnnual -Components Excel, OneDrive, Outlook, PowerPoint, Teams, Word
+	.EXAMPLE Download Office 2024 with the Excel, Word components
+	Download.ps1 -Branch ProPlus2021Volume -Channel PerpetualVL2024 -Components Excel, Word
 
-	.EXAMPLE Download Office 365 with the Excel, Word components using Beta channel
-	Download.ps1 -Branch O365ProPlusRetail -Channel BetaChannel -Components Excel, Word
+	.EXAMPLE Download Office 365 with the Excel, Word, PowerPoint components
+	Download.ps1 -Branch O365ProPlusRetail -Channel Current -Components Excel, OneDrive, Outlook, PowerPoint, Teams, Word
 
 	.LINK
 	https://config.office.com/deploymentsettings
@@ -41,7 +41,7 @@ param
 	$Branch,
 
 	[Parameter(Mandatory = $true)]
-	[ValidateSet("BetaChannel", "Current", "PerpetualVL2021", "SemiAnnual")]
+	[ValidateSet("Current", "PerpetualVL2021", "PerpetualVL2024", "SemiAnnual")]
 	[string]
 	$Channel,
 
@@ -78,6 +78,10 @@ switch ($Branch)
 	{
 		($Config.Configuration.Add.Product | Where-Object -FilterScript {$_.ID -eq ""}).ID = "ProPlus2021Volume"
 	}
+	ProPlus2024Volume
+	{
+		($Config.Configuration.Add.Product | Where-Object -FilterScript {$_.ID -eq ""}).ID = "ProPlus2024Volume"
+	}
 	O365ProPlusRetail
 	{
 		($Config.Configuration.Add.Product | Where-Object -FilterScript {$_.ID -eq ""}).ID = "O365ProPlusRetail"
@@ -86,15 +90,15 @@ switch ($Branch)
 
 switch ($Channel)
 {
-	BetaChannel
-	{
-		($Config.Configuration.Add | Where-Object -FilterScript {$_.Channel -eq ""}).Channel = "BetaChannel"
-	}
 	Current
 	{
 		($Config.Configuration.Add | Where-Object -FilterScript {$_.Channel -eq ""}).Channel = "Current"
 	}
 	PerpetualVL2021
+	{
+		($Config.Configuration.Add | Where-Object -FilterScript {$_.Channel -eq ""}).Channel = "PerpetualVL2021"
+	}
+	PerpetualVL2024
 	{
 		($Config.Configuration.Add | Where-Object -FilterScript {$_.Channel -eq ""}).Channel = "PerpetualVL2021"
 	}

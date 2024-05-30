@@ -12,7 +12,6 @@
       <ExcludeApp ID="Outlook" />
       <ExcludeApp ID="PowerPoint" />
       <ExcludeApp ID="Publisher" />
-      <ExcludeApp ID="Teams" />
       <ExcludeApp ID="Word" />
     </Product>
     <Product ID="ProofingTools">
