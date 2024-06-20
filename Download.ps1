@@ -18,7 +18,7 @@
 	Download.ps1 -Branch ProPlus2021Volume -Channel PerpetualVL2021 -Components Excel, Word
 
 	.EXAMPLE Download Office 2024 with the Excel, Word components
-	Download.ps1 -Branch ProPlus2021Volume -Channel PerpetualVL2024 -Components Excel, Word
+	Download.ps1 -Branch ProPlus2024Volume -Channel PerpetualVL2024 -Components Excel, Word
 
 	.EXAMPLE Download Office 365 with the Excel, Word, PowerPoint components
 	Download.ps1 -Branch O365ProPlusRetail -Channel Current -Components Excel, OneDrive, Outlook, PowerPoint, Teams, Word
@@ -36,7 +36,7 @@
 param
 (
 	[Parameter(Mandatory = $true)]
-	[ValidateSet("ProPlus2019Retail", "ProPlus2021Volume", "O365ProPlusRetail")]
+	[ValidateSet("ProPlus2019Retail", "ProPlus2021Volume", "ProPlus2024Volume", "O365ProPlusRetail")]
 	[string]
 	$Branch,
 
