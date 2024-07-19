@@ -100,7 +100,7 @@ switch ($Channel)
 	}
 	PerpetualVL2024
 	{
-		($Config.Configuration.Add | Where-Object -FilterScript {$_.Channel -eq ""}).Channel = "PerpetualVL2021"
+		($Config.Configuration.Add | Where-Object -FilterScript {$_.Channel -eq ""}).Channel = "PerpetualVL2024"
 	}
 	SemiAnnual
 	{
