@@ -15,8 +15,8 @@
   ```powershell
   .\Download.ps1 -Branch ProPlus2019Retail -Channel Current -Components Word, Excel, PowerPoint
   .\Download.ps1 -Branch ProPlus2021Volume -Channel PerpetualVL2021 -Components Excel, Word
-  .\Download.ps1 -Branch O365ProPlusRetail -Channel Current -Components Excel, OneDrive, Outlook, PowerPoint, Teams, Word
   .\Download.ps1 -Branch ProPlus2024Volume -Channel PerpetualVL2024 -Components Excel, OneDrive, PowerPoint, Word
+  .\Download.ps1 -Branch O365ProPlusRetail -Channel Current -Components Excel, OneDrive, Outlook, PowerPoint, Teams, Word
   ```
 
 * Run `Install.ps1` from context menu to install Office you downloaded (no need to run PowerShell as admin, because `setup.exe` will ask to elevate the installatio process automatically)
