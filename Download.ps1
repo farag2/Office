@@ -9,7 +9,7 @@
 	Choose Office channel: 2019, 2021, 2024, and 365
 
 	.PARAMETER Components
-	Choose Office components: Access, OneDrive, Outlook, Word, Excel, PowerPoint, Teams
+	Choose Office components: Access, OneDrive, Outlook, Word, Excel, PowerPoint, Teams, OneNote, Publisher
 
 	.EXAMPLE Download Office 2019 with the Word, Excel, PowerPoint components
 	Download.ps1 -Branch ProPlus2019Retail -Channel Current -Components Word, Excel, PowerPoint
