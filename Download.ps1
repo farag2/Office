@@ -9,7 +9,7 @@
 	Choose Office channel: 2019, 2021, 2024, and 365
 
 	.PARAMETER Components
-	Choose Office components: Access, OneDrive, Outlook, Word, Excel, PowerPoint, Teams
+	Choose Office components: Access, OneDrive, Outlook, Word, Excel, PowerPoint, Teams, OneNote, Publisher
 
 	.EXAMPLE Download Office 2019 with the Word, Excel, PowerPoint components
 	Download.ps1 -Branch ProPlus2019Retail -Channel Current -Components Word, Excel, PowerPoint
@@ -46,7 +46,7 @@ param
 	$Channel,
 
 	[Parameter(Mandatory = $true)]
-	[ValidateSet("Access", "OneDrive", "Outlook", "Word", "Excel", "PowerPoint", "Teams")]
+	[ValidateSet("Access", "OneDrive", "Outlook", "Word", "Excel", "OneNote", "Publisher", "PowerPoint", "Teams")]
 	[string[]]
 	$Components
 )
@@ -206,6 +206,16 @@ foreach ($Component in $Components)
 		PowerPoint
 		{
 			$Node = $Config.SelectSingleNode("//ExcludeApp[@ID='PowerPoint']")
+			$Node.ParentNode.RemoveChild($Node)
+		}
+  		OneNote
+		{
+			$Node = $Config.SelectSingleNode("//ExcludeApp[@ID='OneNote']")
+			$Node.ParentNode.RemoveChild($Node)
+		}
+  		Publisher
+		{
+			$Node = $Config.SelectSingleNode("//ExcludeApp[@ID='Publisher']")
 			$Node.ParentNode.RemoveChild($Node)
 		}
 		Teams
