@@ -4,7 +4,7 @@
 
 [How-to](https://github.com/user-attachments/assets/a817fa3b-d41f-46af-9386-cae939628cdb)
 
-* Download [latest](https://github.com/farag2/Install-Office/releases/latest) archive and expand it;
+* Download [latest](https://github.com/farag2/Install-Office/releases/latest) archive and expand it
 * Open PowerShell console as admin and change execution policy
 
   ```powershell
@@ -39,16 +39,16 @@
   .\Download.ps1 -Branch O365ProPlusRetail -Channel Current -Components Excel, OneDrive, Outlook, PowerPoint, Teams, Word
   ```
 
-  * There won't be any messages in console while Office is being downloaded;
+  * There won't be any messages in console while Office is being downloaded
   * When Office is downloaded you can find a new `Office` folder in script folder.
-* Do not move downloaded `Office` folder to another location as `Install.ps1` script has a link to `setup.exe`.
-* Run `.\Install.ps1` as admin to install Office you downloaded;
+* Do not move downloaded `Office` folder to another location as `Install.ps1` script has a link to `setup.exe`
+* Run `.\Install.ps1` as admin to install Office you downloaded
 
 ## Addendum
 
 `Microsoft Office 2024 & Microsoft 365` support `Windows 10` & `Windows 11` only
 
-## Features
+## `Configure_Office.ps1` provides the following features
 
 <details>
   <summary>List</summary>
